@@ -1,23 +1,18 @@
-import { Prata } from '@next/font/google'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import type { RefObject } from 'react'
 import { createRef, memo, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
+import Button from '@/components/atoms/Button'
 import SectionNumber from '@/components/atoms/SectionNumber'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
 import { topSectionTexts } from '@/constants/top-sections'
+import { prata } from '@/font/prata'
 
 import { useCurrentSectionContext } from './contexts/CurrentSectionContext'
 import { useInterSection } from './hooks/useInterSection'
-
-const prata = Prata({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400'],
-  fallback: ['Noto Serif JP', '游明朝体', 'Yu Mincho', 'YuMincho', 'serif'],
-})
 
 const Section = styled.section.attrs({
   className: prata.className,
@@ -54,6 +49,12 @@ const Description = styled.p`
   font-size: clamp(24px, 2.67vw, 40px);
 `
 
+const SecSectionNumberWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+`
+
 const Index: NextPage = () => {
   const { currentSection, setCurrentSection, setIsIntersecting } =
     useCurrentSectionContext()
@@ -86,15 +87,19 @@ const Index: NextPage = () => {
             <Section>
               <Title>{section.title}</Title>
               <Description>{section.description}</Description>
-              <button>Show more</button>
+              <Link href={''}>
+                <Button>Show more...</Button>
+              </Link>
             </Section>
           </SnapItem>
         ))}
       </SnapContainer>
-      <SectionNumber
-        currentSection={currentSection}
-        sectionLength={sectionLength}
-      />
+      <SecSectionNumberWrapper>
+        <SectionNumber
+          currentSection={currentSection}
+          sectionLength={sectionLength}
+        />
+      </SecSectionNumberWrapper>
     </>
   )
 }

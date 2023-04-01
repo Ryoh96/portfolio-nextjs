@@ -6,12 +6,9 @@ type SectionNumberType = {
 }
 
 const SectionNumberWrapper = styled.div`
-  position: absolute;
-  right: 0;
   color: #fff;
   font-size: clamp(35.8px, 4.7vw, 70px);
   min-height: 0vw;
-  bottom: 50px;
   line-height: 1;
   transition: 0.5s;
 `
@@ -49,7 +46,7 @@ const SectionNumber = ({
         <Tens>0</Tens>
         <Ones currentSection={currentSection}>
           {[...Array(sectionLength)].map((_, i) => (
-            <span key={i}>{i+1}</span>
+            <span key={i}>{i + 1}</span>
           ))}
         </Ones>
       </SectionNumberInner>
