@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 import { Reset } from 'styled-reset'
 
 const Base = createGlobalStyle`
+* {
+  box-sizing: border-box;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +26,7 @@ html {
     }
     scrollbar-width: none; /* Firefox 対応 */
   }
+
 }
 `
 
