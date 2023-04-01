@@ -1,3 +1,4 @@
+import { Prata } from '@next/font/google'
 import type { NextPage } from 'next'
 import styled from 'styled-components'
 
@@ -5,7 +6,16 @@ import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
 import { topSectionTexts } from '@/constants/top-sections'
 
-const Section = styled.section`
+const prata = Prata({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400'],
+  fallback: ['Noto Serif JP', '游明朝体', 'Yu Mincho', 'YuMincho', 'serif'],
+})
+
+const Section = styled.section.attrs({
+  className: prata.className,
+})`
   width: 100%;
   height: 100%;
   scroll-snap-align: start;
@@ -27,7 +37,6 @@ const Title = styled.h1`
   /* transform: rotate(-10deg); */
   transform-origin: 'cecnter center';
   line-height: 1;
-
 `
 
 const Description = styled.p`

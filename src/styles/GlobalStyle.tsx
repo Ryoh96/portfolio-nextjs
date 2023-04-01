@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import { Reset } from 'styled-reset'
 
 const Base = createGlobalStyle`
+
 * {
   box-sizing: border-box;
 }
