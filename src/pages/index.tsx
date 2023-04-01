@@ -1,10 +1,16 @@
 import { Prata } from '@next/font/google'
 import type { NextPage } from 'next'
+import type { RefObject } from 'react'
+import { createRef, memo, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
+import SectionNumber from '@/components/atoms/SectionNumber'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
 import { topSectionTexts } from '@/constants/top-sections'
+
+import { useCurrentSectionContext } from './contexts/CurrentSectionContext'
+import { useInterSection } from './hooks/useInterSection'
 
 const prata = Prata({
   subsets: ['latin'],
@@ -49,18 +55,47 @@ const Description = styled.p`
 `
 
 const Index: NextPage = () => {
+  const { currentSection, setCurrentSection, setIsIntersecting } =
+    useCurrentSectionContext()
+
+  const snapContainerRef = useRef<HTMLDivElement | null>(null)
+  const snapItemRefs = useRef<RefObject<HTMLDivElement>[]>([])
+
+  const sectionLength = useMemo(() => topSectionTexts.length, [])
+
+  ;[...Array(sectionLength)].forEach((_, index) => {
+    snapItemRefs.current[index] = createRef<HTMLDivElement>()
+  })
+
+  useInterSection(
+    snapContainerRef,
+    snapItemRefs,
+    setCurrentSection,
+    setIsIntersecting
+  )
+
   return (
-    <SnapContainer>
-      {topSectionTexts.map((section, index) => (
-        <SnapItem key={index} id={`${index}`}>
-          <Section>
-            <Title>{section.title}</Title>
-            <Description>{section.description}</Description>
-            <button>Show more</button>
-          </Section>
-        </SnapItem>
-      ))}
-    </SnapContainer>
+    <>
+      <SnapContainer ref={snapContainerRef}>
+        {topSectionTexts.map((section, index) => (
+          <SnapItem
+            key={index}
+            id={`${index}`}
+            ref={snapItemRefs.current[index]}
+          >
+            <Section>
+              <Title>{section.title}</Title>
+              <Description>{section.description}</Description>
+              <button>Show more</button>
+            </Section>
+          </SnapItem>
+        ))}
+      </SnapContainer>
+      <SectionNumber
+        currentSection={currentSection}
+        sectionLength={sectionLength}
+      />
+    </>
   )
 }
 
