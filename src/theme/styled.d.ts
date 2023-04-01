@@ -29,5 +29,7 @@ declare module 'styled-components' {
       | 'o_4xl',
       (...args: [TemplateStringsArray]) => FlattenSimpleInterpolation
     >
+    contentWidth: string
+    maxContentWidth: string
   }
 }

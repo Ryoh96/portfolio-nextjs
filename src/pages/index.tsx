@@ -87,9 +87,12 @@ const Index: NextPage = () => {
             <Section>
               <Title>{section.title}</Title>
               <Description>{section.description}</Description>
-              <Link href={''}>
+              {
+                index !== 0 &&
+                <Link href={''}>
                 <Button>Show more...</Button>
               </Link>
+              }
             </Section>
           </SnapItem>
         ))}
