@@ -126,8 +126,10 @@ const About: NextPage = () => {
             <ListItem>Oracle (Bronze)</ListItem>
           </List>
         </Section>
-        <Section>受賞歴</Section>
-        <Paragraph>色彩検定協会優秀賞 (2019年度)</Paragraph>
+        <Section>
+          <Title>受賞歴</Title>
+          <Paragraph>色彩検定協会優秀賞 (2019年度)</Paragraph>
+        </Section>
       </AboutInner>
     </Container>
   )
