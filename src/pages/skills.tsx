@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled from 'styled-components'
 
+import CountUpDoughnut from '@/components/atoms/CountUpDoughnuts'
 import CountUpPercentage from '@/components/atoms/CountUpPercentage'
 import _Description from '@/components/atoms/Description'
 import PopUpImage from '@/components/atoms/PopUpImage'
@@ -25,6 +26,7 @@ const Skills: NextPage = () => {
 
       {/* <PopUpImage url="/html.png" appear={appear} /> */}
       <CountUpPercentage percentage={90} />
+      <CountUpDoughnut percentage={90} />
     </>
   )
 }
