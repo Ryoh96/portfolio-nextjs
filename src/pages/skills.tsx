@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled from 'styled-components'
 
+import CountUpPercentage from '@/components/atoms/CountUpPercentage'
 import _Description from '@/components/atoms/Description'
 import PopUpImage from '@/components/atoms/PopUpImage'
 import _Title from '@/components/atoms/Title'
@@ -22,7 +23,8 @@ const Skills: NextPage = () => {
     <>
       <button onClick={() => setAppear(!appear)}>Appear</button>
 
-      <PopUpImage url="/html.png" appear={appear} />
+      {/* <PopUpImage url="/html.png" appear={appear} /> */}
+      <CountUpPercentage percentage={90} />
     </>
   )
 }
