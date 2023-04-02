@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import _Description from '@/components/atoms/Description'
@@ -131,6 +132,7 @@ const About: NextPage = () => {
           <Paragraph>色彩検定協会優秀賞 (2019年度)</Paragraph>
         </Section>
       </AboutInner>
+      <Link href="/">back</Link>
     </Container>
   )
 }

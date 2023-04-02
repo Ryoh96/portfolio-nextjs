@@ -88,8 +88,8 @@ const Index: NextPage = () => {
               <Title>{section.title}</Title>
               <Description>{section.description}</Description>
               {
-                index !== 0 &&
-                <Link href={''}>
+                section.link &&
+                <Link href={section.link}>
                 <Button>Show more...</Button>
               </Link>
               }
