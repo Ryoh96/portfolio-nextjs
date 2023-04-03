@@ -13,6 +13,7 @@ import { prata } from '@/font/prata'
 
 import { useCurrentSectionContext } from './contexts/CurrentSectionContext'
 import { useInterSection } from './hooks/useInterSection'
+import Logo from '@/components/atoms/Logo'
 
 const Section = styled.section.attrs({
   className: prata.className,
@@ -77,6 +78,7 @@ const Index: NextPage = () => {
 
   return (
     <>
+    <Logo type="normal"/>
       <SnapContainer ref={snapContainerRef}>
         {topSectionTexts.map((section, index) => (
           <SnapItem
