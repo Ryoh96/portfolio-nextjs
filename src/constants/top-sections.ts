@@ -5,12 +5,17 @@ export const topSectionTexts = [
   },
   {
     title: "About",
-    description: "経歴・資格・受賞歴",
+    description: "経歴・引き受けている仕事など",
     link: "/about"
   },
   {
     title: "Skill",
-    description: "コーディング & デザイン",
+    description: "使用可能な技術",
+    link: "/skills"
+  },
+  {
+    title: "Work",
+    description: "制作してきた作品",
     link: "/skills"
   },
   {

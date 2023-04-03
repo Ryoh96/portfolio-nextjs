@@ -5,9 +5,10 @@ import styled from 'styled-components'
 import _Description from '@/components/atoms/Description'
 import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
+import Header from '@/components/organisms/Header'
 
 const PageTitle = styled(_Title)`
-  margin-top: 1em;
+  padding-top: 1em;
   margin-bottom: 0.5em;
 `
 
@@ -82,58 +83,71 @@ const AboutInner = styled.div`
   margin-inline: auto;
 `
 
+const AboutWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`
+
 const About: NextPage = () => {
   return (
-    <Container>
-      <AboutInner>
-        <PageTitle>About</PageTitle>
-        <PageDescription>自己紹介・保有資格・受賞歴</PageDescription>
-        <Section>
-          <Title>経歴</Title>
-          <Paragraph>
-            筑波大学大学院コンピュータサイエンス専攻修了。
-            <br />
-            学生時代は画像認識の研究に従事。
-          </Paragraph>
-          <Paragraph>
-            その後SEとして働き、フロントエンドからバックエンドまで一通りの経験を積む。
-          </Paragraph>
-          <Paragraph>現在は退職してフリーで活動中。</Paragraph>
-        </Section>
-        <Section>
-          <Title>現在引き受けている仕事</Title>
-          <Paragraph>
-            WebアプリやWebサイトのフロントエンド開発全般を行います。
-          </Paragraph>
-          <List>
-            <ListItem>
-              Next.js(React)やTypeScriptを用いたフロントエンド開発
-            </ListItem>
-            <ListItem>JamstackなWebサイトの構築</ListItem>
-            <ListItem>WebサイトのCMS化・レスポンシブ対応</ListItem>
-            <ListItem>HTML / Sass(CSS)によるモダンなコーディング等</ListItem>
-          </List>
-          <Paragraph>
-            場合によって、デザインからPHPやPythonによるバックグラウンド構築も可能です。
-          </Paragraph>
-        </Section>
-        <Section>
-          <Title>保有資格</Title>
-          <List>
-            <ListItem>HTMLプロフェッショナル認定試験 (レベル2)</ListItem>
-            <ListItem>色彩検定 (2級・優秀賞)</ListItem>
-            <ListItem>Webクリエイター能力認定試験 (エキスパート)</ListItem>
-            <ListItem>JavaSE (Sliver)</ListItem>
-            <ListItem>Oracle (Bronze)</ListItem>
-          </List>
-        </Section>
-        <Section>
-          <Title>受賞歴</Title>
-          <Paragraph>色彩検定協会優秀賞 (2019年度)</Paragraph>
-        </Section>
-      </AboutInner>
-      <Link href="/">back</Link>
-    </Container>
+    <>
+      <Header type="back" key="about" />
+      <AboutWrapper>
+        <Container>
+          <AboutInner>
+            <PageTitle>About</PageTitle>
+            <PageDescription>自己紹介・保有資格・受賞歴</PageDescription>
+            <Section>
+              <Title>経歴</Title>
+              <Paragraph>
+                筑波大学大学院コンピュータサイエンス専攻修了。
+                <br />
+                学生時代は画像認識の研究に従事。
+              </Paragraph>
+              <Paragraph>
+                その後SEとして働き、フロントエンドからバックエンドまで一通りの経験を積む。
+              </Paragraph>
+              <Paragraph>現在は退職してフリーで活動中。</Paragraph>
+            </Section>
+            <Section>
+              <Title>現在引き受けている仕事</Title>
+              <Paragraph>
+                WebアプリやWebサイトのフロントエンド開発全般を行います。
+              </Paragraph>
+              <List>
+                <ListItem>
+                  Next.js(React)やTypeScriptを用いたフロントエンド開発
+                </ListItem>
+                <ListItem>JamstackなWebサイトの構築</ListItem>
+                <ListItem>WebサイトのCMS化・レスポンシブ対応</ListItem>
+                <ListItem>
+                  HTML / Sass(CSS)によるモダンなコーディング等
+                </ListItem>
+              </List>
+              <Paragraph>
+                場合によって、デザインからPHPやPythonによるバックグラウンド構築も可能です。
+              </Paragraph>
+            </Section>
+            <Section>
+              <Title>保有資格</Title>
+              <List>
+                <ListItem>HTMLプロフェッショナル認定試験 (レベル2)</ListItem>
+                <ListItem>色彩検定 (2級・優秀賞)</ListItem>
+                <ListItem>Webクリエイター能力認定試験 (エキスパート)</ListItem>
+                <ListItem>JavaSE (Sliver)</ListItem>
+                <ListItem>Oracle (Bronze)</ListItem>
+              </List>
+            </Section>
+            <Section>
+              <Title>受賞歴</Title>
+              <Paragraph>色彩検定協会優秀賞 (2019年度)</Paragraph>
+            </Section>
+          </AboutInner>
+          <Link href="/">back</Link>
+        </Container>
+      </AboutWrapper>
+    </>
   )
 }
 

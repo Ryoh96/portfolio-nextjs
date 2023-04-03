@@ -1,15 +1,15 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import type { RefObject } from 'react'
-import { createRef, memo, useMemo, useRef, useState } from 'react'
+import { createRef, useCallback, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
 import Button from '@/components/atoms/Button'
-import HamburgerButton from '@/components/atoms/HamburgerButton'
-import Logo from '@/components/atoms/Logo'
 import SectionNumber from '@/components/atoms/SectionNumber'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
+import FootPrints from '@/components/molecules/FootPrints'
+import Header from '@/components/organisms/Header'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
@@ -52,9 +52,16 @@ const Description = styled.p`
 `
 
 const SecSectionNumberWrapper = styled.div`
-  position: absolute;
-  right: 0;
+  position: fixed;
+  right: 3%;
   bottom: 50px;
+`
+
+const FootPrintsWrapper = styled.div`
+  position: fixed;
+  left: 4%;
+  bottom: 50px;
+  z-index: 2;
 `
 
 const Index: NextPage = () => {
@@ -77,12 +84,15 @@ const Index: NextPage = () => {
     setIsIntersecting
   )
 
-  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = useCallback((index: number) => {
+    document.getElementById(`${index}`)?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }, [])
 
   return (
     <>
-      <Logo type="normal" />
-      <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      <Header />
       <SnapContainer ref={snapContainerRef}>
         {topSectionTexts.map((section, index) => (
           <SnapItem
@@ -108,6 +118,13 @@ const Index: NextPage = () => {
           sectionLength={sectionLength}
         />
       </SecSectionNumberWrapper>
+      <FootPrintsWrapper>
+        <FootPrints
+          current={currentSection}
+          length={sectionLength}
+          onClick={handleClick}
+        />
+      </FootPrintsWrapper>
     </>
   )
 }

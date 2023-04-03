@@ -2,22 +2,17 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import type { RefObject } from 'react'
 import { createRef, useEffect, useMemo, useRef, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 
-import CountUpDoughnut from '@/components/atoms/CountUpDoughnuts'
-import CountUpPercentage from '@/components/atoms/CountUpPercentage'
 import _Description from '@/components/atoms/Description'
-import PopUpImage from '@/components/atoms/PopUpImage'
 import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
-import AppearWithScroll from '@/components/organisms/AppearWithScroll'
+import Header from '@/components/organisms/Header'
 import ImageDoughnutsPercent from '@/components/organisms/ImageDoughnutPercent'
 import { skills } from '@/constants/skills'
 
-
 const PageTitle = styled(_Title)`
-  margin-top: 1em;
+  padding-top: 1em;
   margin-bottom: 0.5em;
 `
 
@@ -57,8 +52,7 @@ const Skills: NextPage = () => {
   // useInterSectionSkills(chartRefs)
   return (
     <>
-      <button onClick={() => setAppear(!appear)}>Appear</button>
-
+      <Header type="back"/>
       <Container>
         <SkillsInner>
           <PageTitle>Skills</PageTitle>

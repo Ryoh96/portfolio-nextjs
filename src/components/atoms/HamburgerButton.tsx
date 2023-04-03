@@ -11,6 +11,11 @@ const HamburgerButtonWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: scale(1.2) rotate(360deg);
+  }
 
   .open & {
     transition: none;
