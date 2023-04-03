@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import type { RefObject } from 'react'
 import { createRef, useEffect, useMemo, useRef, useState } from 'react'
+import { InView } from 'react-intersection-observer'
 import styled from 'styled-components'
 
 import _Description from '@/components/atoms/Description'
+import ScrollDown from '@/components/atoms/ScrollDown'
 import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
 import Header from '@/components/organisms/Header'
@@ -25,6 +26,7 @@ const SkillsInner = styled.div`
   position: relative;
   z-index: 2;
   margin-inline: auto;
+  margin-bottom: 180px;
 `
 const ImageDoughnutsPercentWrapper = styled.div`
   /* display: flex; */
@@ -36,10 +38,20 @@ const ImageDoughnutsPercentWrapper = styled.div`
   row-gap: 10vw;
 `
 
+const ScrollDownWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  bottom: 30px;
+
+  ${({ theme }) => theme.media.u_sp`
+    font-size: 12px;
+    bottom: 20px;
+  `}
+  z-index: 10;
+`
+
 const Skills: NextPage = () => {
-  const [appear, setAppear] = useState(false)
   const chartRefs = useRef<RefObject<HTMLDivElement>[]>([])
-  const [isAppear, setIsAppear] = useState<boolean[]>([])
   const isEnd = useRef(false)
   const skillLength = useMemo(() => skills.length, [])
 
@@ -47,12 +59,11 @@ const Skills: NextPage = () => {
     chartRefs.current[index] = createRef<HTMLDivElement>()
   })
 
-  console.log(isAppear)
   const wrapperRef = useRef<HTMLDivElement | null>(null)
-  // useInterSectionSkills(chartRefs)
+  const [count, setCount] = useState(0)
   return (
     <>
-      <Header type="back"/>
+      <Header type="back" />
       <Container>
         <SkillsInner>
           <PageTitle>Skills</PageTitle>
@@ -68,9 +79,14 @@ const Skills: NextPage = () => {
               </div>
             ))}
           </ImageDoughnutsPercentWrapper>
+          <InView as="div" onChange={() => setCount(count + 1)} />
         </SkillsInner>
       </Container>
-      <Link href="/">back</Link>
+      <ScrollDownWrapper>
+        <ScrollDown
+          isLast={count >= 2  ? true : false}
+        />
+      </ScrollDownWrapper>
     </>
   )
 }
