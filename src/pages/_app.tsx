@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 
+import MouseStalker from '@/components/atoms/MouseStalker'
 import GlobalStyle from '@/styles/GlobalStyle'
 import { theme } from '@/theme'
 
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <CurrentSectionContextProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <MouseStalker />
         <Component {...pageProps} />
       </ThemeProvider>
     </CurrentSectionContextProvider>
