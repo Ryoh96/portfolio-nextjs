@@ -5,6 +5,7 @@ import { createRef, useCallback, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
 import Button from '@/components/atoms/Button'
+import ScrollDown from '@/components/atoms/ScrollDown'
 import SectionNumber from '@/components/atoms/SectionNumber'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
@@ -62,6 +63,16 @@ const FootPrintsWrapper = styled.div`
   left: 4%;
   bottom: 50px;
   z-index: 2;
+`
+const ScrollDownWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  bottom: 30px;
+
+  ${({ theme }) => theme.media.u_sp`
+    font-size: 12px;
+    bottom: 20px;
+  `}
 `
 
 const Index: NextPage = () => {
@@ -125,6 +136,9 @@ const Index: NextPage = () => {
           onClick={handleClick}
         />
       </FootPrintsWrapper>
+      <ScrollDownWrapper>
+        <ScrollDown isLast={currentSection === sectionLength - 1 ? true : false} />
+      </ScrollDownWrapper>
     </>
   )
 }

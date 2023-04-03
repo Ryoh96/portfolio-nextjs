@@ -12,19 +12,33 @@ const MyCursor = styled.div`
   border-radius: 50%;
   top: 0;
   left: 0;
-  background-color: #fff;
+  /* background-color: #fff; */
   mix-blend-mode: difference;
   z-index: 100000;
-  filter: blur(5px);
+  filter: blur(2px);
   transition: 0.2s transform;
   transform: translateZ(0);
   &.hover {
     transform: scale(1.5);
   }
 
+  animation: rotate 3s linear infinite;
+
+  background-image: url("/gear-menu.svg");
+
   ${({ theme }) => theme.media.u_pc`
     display: none;
   `}
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(359deg);
+    }
+  }
 `
 
 const delay = 30
