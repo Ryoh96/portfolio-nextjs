@@ -5,7 +5,7 @@ export const skills = [
     percentage: 95,
   },
   {
-    title: 'CSS',
+    title: 'CSS3',
     url: '/css.png',
     percentage: 95,
   },
@@ -51,7 +51,7 @@ export const skills = [
   },
   {
     title: 'GraphQL',
-    url: '/sass.png',
+    url: '/graphql.png',
     percentage: 85,
   },
   {
@@ -81,7 +81,7 @@ export const skills = [
   },
   {
     title: 'Vue.js',
-    url: '/python.png',
+    url: '/vuejs.png',
     percentage: 70,
   },
   {
@@ -101,7 +101,7 @@ export const skills = [
   },
   {
     title: 'MySQL',
-    url: '/docker.png',
+    url: '/mysql.png',
     percentage: 65,
   },
 ]

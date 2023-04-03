@@ -68,7 +68,7 @@ const Skills: NextPage = () => {
               <div key={i} ref={chartRefs.current[i]} id={`${i}`}>
                 <ImageDoughnutsPercent
                   title={skill.title}
-                  url="/html.png"
+                  url={skill.url}
                   percentage={skill.percentage}
                 />
               </div>
