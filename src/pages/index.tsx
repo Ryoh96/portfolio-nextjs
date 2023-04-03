@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import type { RefObject } from 'react'
-import { createRef, memo, useMemo, useRef } from 'react'
+import { createRef, memo, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 import Button from '@/components/atoms/Button'
+import HamburgerButton from '@/components/atoms/HamburgerButton'
+import Logo from '@/components/atoms/Logo'
 import SectionNumber from '@/components/atoms/SectionNumber'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
@@ -13,7 +15,6 @@ import { prata } from '@/font/prata'
 
 import { useCurrentSectionContext } from './contexts/CurrentSectionContext'
 import { useInterSection } from './hooks/useInterSection'
-import Logo from '@/components/atoms/Logo'
 
 const Section = styled.section.attrs({
   className: prata.className,
@@ -76,9 +77,12 @@ const Index: NextPage = () => {
     setIsIntersecting
   )
 
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <>
-    <Logo type="normal"/>
+      <Logo type="normal" />
+      <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       <SnapContainer ref={snapContainerRef}>
         {topSectionTexts.map((section, index) => (
           <SnapItem
@@ -89,12 +93,11 @@ const Index: NextPage = () => {
             <Section>
               <Title>{section.title}</Title>
               <Description>{section.description}</Description>
-              {
-                section.link &&
+              {section.link && (
                 <Link href={section.link}>
-                <Button>Show more...</Button>
-              </Link>
-              }
+                  <Button>Show more...</Button>
+                </Link>
+              )}
             </Section>
           </SnapItem>
         ))}
