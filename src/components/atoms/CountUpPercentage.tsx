@@ -43,7 +43,7 @@ const CountUpPercentage = ({
 
   useEffect(() => {
     const id = setInterval(() => {
-      count <= percentage && setCount((prev) => prev + 1)
+      count < percentage && setCount((prev) => prev + 1)
     }, countUpSpeed)
     return () => clearInterval(id)
   }, [count, countUpSpeed, percentage])

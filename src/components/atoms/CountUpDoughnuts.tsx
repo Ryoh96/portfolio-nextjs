@@ -6,15 +6,15 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 
 type CountUpDoughnutsProps = {
   percentage: number
+  className?: string
 }
 
-const CountUpDoughnut = ({ percentage }: CountUpDoughnutsProps) => {
+const CountUpDoughnut = ({ percentage, className }: CountUpDoughnutsProps) => {
   const data: ChartData<'doughnut'> = {
     datasets: [
       {
         data: [percentage, 100 - percentage],
         backgroundColor: ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 0)'],
-        // borderColor: 'rgba(0, 0, 0, 0)',
         borderWidth: 0,
       },
     ],
@@ -24,7 +24,7 @@ const CountUpDoughnut = ({ percentage }: CountUpDoughnutsProps) => {
     cutout: '80%',
   }
 
-  return <Doughnut data={data} options={options} />
+  return <Doughnut data={data} options={options} className={className} />
 }
 
 export default CountUpDoughnut

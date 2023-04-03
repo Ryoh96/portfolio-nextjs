@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 const ImageWrapper = styled.figure<{
   appear: boolean
 }>`
-  max-width: 30%;
 
   img {
     position: static !important;
@@ -35,12 +34,13 @@ const ImageWrapper = styled.figure<{
 type PopupImageProps = {
   url: string
   appear: boolean
+  className?: string
 }
 
-const PopUpImage = ({ url, appear }: PopupImageProps) => {
+const PopUpImage = ({ url, appear, className }: PopupImageProps) => {
   return (
     <>
-      <ImageWrapper appear={appear}>
+      <ImageWrapper appear={appear} className={className}>
         <Image
           src={url}
           alt=""
@@ -51,7 +51,6 @@ const PopUpImage = ({ url, appear }: PopupImageProps) => {
           }}
         />
       </ImageWrapper>
-      <p>{appear ? 'hoge' : 'fuga'}</p>
     </>
   )
 }
