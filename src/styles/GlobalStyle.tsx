@@ -28,6 +28,9 @@ html {
     scrollbar-width: none; /* Firefox 対応 */
   }
 
+  a {
+    text-decoration: none;
+  }
 }
 `
 
