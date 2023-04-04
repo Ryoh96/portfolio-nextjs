@@ -5,7 +5,7 @@ import { prata } from '@/font/prata'
 const ButtonWrapper = styled.button`
   background-image: linear-gradient(to right, #555 50%, #fff 50%);
   background-size: 200% 100%;
-  font-size: 24px;
+  font-size: 20px;
   font-family: $en;
   font-weight: bold;
   background-position-x: 100%;

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import type { RefObject } from 'react'
+import { RefObject, useLayoutEffect } from 'react'
 import { createRef, useCallback, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
@@ -99,6 +99,11 @@ const Index: NextPage = () => {
     document.getElementById(`${index}`)?.scrollIntoView({
       behavior: 'smooth',
     })
+  }, [])
+
+  useLayoutEffect(() => {
+    document.getElementById(`${currentSection}`)?.scrollIntoView()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

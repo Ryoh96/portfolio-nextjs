@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
 const HamburgerButtonWrapper = styled.button`
+  background-color: transparent;
+
   all: unset;
   outline: revert;
   -webkit-tap-highlight-color: transparent;
@@ -36,6 +38,10 @@ const HamburgerButtonWrapper = styled.button`
     width: 58px;
     height: 58px;
   `}
+  ${({ theme }) => theme.media.u_sm`
+    width: 50px;
+    height: 50px;
+  `}
 `
 
 const BackgroundButton = styled.div<{
@@ -43,7 +49,7 @@ const BackgroundButton = styled.div<{
 }>`
   z-index: 8000;
   background-image: url(/gear-menu.svg);
-  background-color: rgba(0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0.4); */
   border-radius: 50%;
   background-size: contain;
   background-repeat: no-repeat;

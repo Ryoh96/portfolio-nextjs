@@ -28,6 +28,10 @@ const ImageWrapper = styled.figure`
     width: 58px;
     height: 58px;
   `}
+    ${({ theme }) => theme.media.u_sm`
+    width: 50px;
+    height: 50px;
+  `}
 
   img {
     position: static !important;

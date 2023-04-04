@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { css } from 'styled-components'
 
-const breakpoints = new Map([
+export const breakpoints = new Map([
   ['xxs', 400],
   ['xs', 480],
   ['sm', 580],

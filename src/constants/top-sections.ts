@@ -14,9 +14,9 @@ export const topSectionTexts = [
     link: "/skills"
   },
   {
-    title: "Work",
+    title: "Works",
     description: "制作してきた作品",
-    link: "/skills"
+    link: "/works"
   },
   {
     title: "Contact",

@@ -31,5 +31,18 @@ declare module 'styled-components' {
     >
     contentWidth: string
     maxContentWidth: string
+    breakpoints: [
+      ['xxs', 400],
+      ['xs', 480],
+      ['sm', 580],
+      ['sp', 835],
+      ['md', 900],
+      ['pc', 1024],
+      ['lg', 1100],
+      ['xl', 1300],
+      ['xxl', 1400],
+      ['3xl', 1600],
+      ['4xl', 1900]
+    ]
   }
 }
