@@ -17,13 +17,35 @@ const ButtonWrapper = styled.button`
   &:hover {
     background-position-x: 0;
   }
+
+  ${({ theme }) => theme.media.u_xxl`
+    transform: scale(0.95);
+  `}
+  ${({ theme }) => theme.media.u_xl`
+    transform: scale(0.9);
+  `}
+  ${({ theme }) => theme.media.u_lg`
+    transform: scale(0.85);
+  `}
+  ${({ theme }) => theme.media.u_md`
+    transform: scale(0.8);
+  `}
+  ${({ theme }) => theme.media.u_sp`
+    transform: scale(0.75);
+  `}
+  ${({ theme }) => theme.media.u_sm`
+    transform: scale(0.7);
+  `}
+  ${({ theme }) => theme.media.u_xs`
+    transform: scale(0.65);
+  `}
 `
 
 const ButtonInner = styled.div.attrs({
   className: prata.className,
 })`
   font-weight: bold;
-  padding: 20px 30px;
+  padding: 16px 30px;
 
   display: inline-block;
   box-sizing: border-box;

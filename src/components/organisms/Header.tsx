@@ -24,8 +24,6 @@ type HeaderProps = {
 }
 
 const Header = ({ type = 'normal' }: HeaderProps) => {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
     <HeaderWrapper>
       <Container>

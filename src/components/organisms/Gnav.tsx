@@ -77,7 +77,7 @@ const BlackBox = styled.div<{ isShow: boolean }>`
   width: 100%;
   height: 100%;
   transform: translate(101%);
-  animation-timing-function: cubic-bezier(0.1, 0.2, 0.1,1.2);
+  animation-timing-function: cubic-bezier(0.94, 0, 0.15, 1);
   ${({ isShow }) => isShow && `animation: fade 1.5s forwards`};
 
   @keyframes fade {

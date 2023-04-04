@@ -8,12 +8,22 @@ type ScrollDownProps = {
 
 const Text = styled.span`
   font-size: 20px;
+  z-index: 10;
+  position: relative;
+
+  ${({ theme }) => theme.media.u_xl`
+    font-size: 16px;
+  `}
+  ${({ theme }) => theme.media.u_xxl`
+    font-size: 14px;
+  `}
 `
 
 const ScrollDownWrapper = styled.div`
   color: #fff;
   mix-blend-mode: difference;
   width: 100%;
+  position: relative;
   text-align: center;
   justify-items: center;
   z-index: 10;
@@ -45,10 +55,6 @@ const IconWrapper = styled.div`
   }
 `
 
-const CopyRight = styled.span`
-  
-`
-
 const ScrollDown = ({ isLast }: ScrollDownProps) => {
   return (
     <ScrollDownWrapper>
@@ -60,7 +66,7 @@ const ScrollDown = ({ isLast }: ScrollDownProps) => {
           </IconWrapper>
         </>
       ) : (
-        <CopyRight>© RYOH KUROKI. All Rights Reserved.</CopyRight>
+        <Text>© RYOH KUROKI. All Rights Reserved.</Text>
       )}
     </ScrollDownWrapper>
   )

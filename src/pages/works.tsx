@@ -20,9 +20,9 @@ const Title = styled.h2.attrs({
   className: prata.className,
 })`
   text-align: center;
-  font-size: clamp(51px, 5.33vw, 80px);
+  font-size: clamp(50px, 5vw, 80px);
   min-height: 0vw;
-  padding-top: 1.25em;
+  padding-top: 1.2em;
 
   ${({ theme }) => theme.media.u_sp`
     margin-bottom: 0.6em;
@@ -41,7 +41,7 @@ const Title = styled.h2.attrs({
 `
 
 const WorksInner = styled.div`
-  max-width: 1360px;
+  width: min(1360px, 84%);
   z-index: 2;
   margin-inline: auto;
 `
@@ -193,7 +193,7 @@ const Works: NextPage = () => {
                       <Image alt={work.title} src={work.url} fill />
                     </ImageWrapper>
                   </FlexContainer>
-                <InView as="div" onChange={() => setCount(count + 1)} />
+                  <InView as="div" onChange={() => setCount(count + 1)} />
                 </Section>
               </SnapItem>
             ))}
