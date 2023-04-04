@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import HamburgerButton from '../atoms/HamburgerButton'
 import Logo from '../atoms/Logo'
 import Container from '../layout/Container'
+import Gnav from './Gnav'
 
 const HeaderWrapper = styled.header`
   margin-top: 30px;
@@ -19,12 +20,10 @@ const HeaderInner = styled.div`
 `
 
 type HeaderProps = {
-  type?: "back" | "normal"
+  type?: 'back' | 'normal'
 }
 
-const Header = ({
-  type = "normal"
-}: HeaderProps) => {
+const Header = ({ type = 'normal' }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -32,7 +31,7 @@ const Header = ({
       <Container>
         <HeaderInner>
           <Logo type={type} />
-          <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+          <Gnav />
         </HeaderInner>
       </Container>
     </HeaderWrapper>

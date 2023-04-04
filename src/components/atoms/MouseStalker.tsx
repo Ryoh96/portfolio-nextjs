@@ -14,7 +14,7 @@ const MyCursor = styled.div`
   left: 0;
   /* background-color: #fff; */
   mix-blend-mode: difference;
-  z-index: 100000;
+  z-index: 1000000;
   filter: blur(2px);
   transition: 0.2s transform;
   transform: translateZ(0);
