@@ -16,6 +16,7 @@ import AroundGears from '@/components/molecules/AroundGears'
 import FootPrints from '@/components/molecules/FootPrints'
 import Gears from '@/components/molecules/Gears'
 import Header from '@/components/organisms/Header'
+import Particle from '@/components/organisms/Particle'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
@@ -120,6 +121,7 @@ const Index: NextPage = () => {
   return (
     <>
       <Header />
+      <Particle />
       <SnapContainer ref={snapContainerRef}>
         {topSectionTexts.map((section, index) => (
           <SnapItem

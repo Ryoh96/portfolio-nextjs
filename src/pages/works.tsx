@@ -9,6 +9,7 @@ import Container from '@/components/layout/Container'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
 import Header from '@/components/organisms/Header'
+import Particle from '@/components/organisms/Particle'
 import { works } from '@/constants/works'
 import { prata } from '@/font/prata'
 
@@ -173,6 +174,7 @@ const Works: NextPage = () => {
   return (
     <>
       <Header type="back" />
+      <Particle />
       <Container>
         <WorksInner>
           <SnapContainer>

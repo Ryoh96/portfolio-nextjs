@@ -10,6 +10,7 @@ import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
 import Header from '@/components/organisms/Header'
 import ImageDoughnutsPercent from '@/components/organisms/ImageDoughnutPercent'
+import Particle from '@/components/organisms/Particle'
 import { skills } from '@/constants/skills'
 
 const PageTitle = styled(_Title)`
@@ -64,6 +65,7 @@ const Skills: NextPage = () => {
   return (
     <>
       <Header type="back" />
+      <Particle />
       <Container>
         <SkillsInner>
           <PageTitle>Skills</PageTitle>
@@ -83,9 +85,7 @@ const Skills: NextPage = () => {
         </SkillsInner>
       </Container>
       <ScrollDownWrapper>
-        <ScrollDown
-          isLast={count >= 2  ? true : false}
-        />
+        <ScrollDown isLast={count >= 2 ? true : false} />
       </ScrollDownWrapper>
     </>
   )

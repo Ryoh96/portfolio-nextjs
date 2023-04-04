@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
+import { useRef } from 'react'
 import styled from 'styled-components'
 
 import _Description from '@/components/atoms/Description'
 import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
 import Header from '@/components/organisms/Header'
+import Particle from '@/components/organisms/Particle'
 
 const PageTitle = styled(_Title)`
   padding-top: 1em;
@@ -145,6 +147,7 @@ const About: NextPage = () => {
           </AboutInner>
         </Container>
       </AboutWrapper>
+      <Particle />
     </>
   )
 }
