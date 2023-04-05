@@ -13,5 +13,6 @@ const SnapContainer = styled.div`
   height: 100svh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 `
 export default SnapContainer

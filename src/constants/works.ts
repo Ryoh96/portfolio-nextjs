@@ -1,4 +1,14 @@
-export const works = [
+export type WorkType = {
+  title: string
+  url: string
+  list: {
+    term: string
+    desc: string
+  }[]
+}
+
+
+export const works: WorkType[] = [
   {
     title: 'Jamstackブログ',
     url: '/thumb-tekrog.jpg',
@@ -93,11 +103,4 @@ export const works = [
       },
     ],
   },
-] as {
-  title: string
-  url: string
-  list: {
-    term: string
-    desc: string
-  }[]
-}[]
+] 

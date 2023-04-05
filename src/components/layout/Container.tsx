@@ -5,6 +5,7 @@ const Container = styled.div`
     width: min(${theme.contentWidth}, ${theme.maxContentWidth});
   `}
   margin-inline: auto;
+  overflow-x: visible;
 `
 
 export default Container
