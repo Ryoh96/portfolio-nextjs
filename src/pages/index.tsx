@@ -52,7 +52,6 @@ const Section = styled.section.attrs({
         `
       : css`
           opacity: 0;
-          /* color: ${getRandomColor()}; */
         `}
 `
 
@@ -61,7 +60,6 @@ const Title = styled.h1`
   min-height: 0vw;
   margin-bottom: 2vh;
   transition: 0.6s;
-  /* transform: rotate(-10deg); */
   transform-origin: 'cecnter center';
   line-height: 1;
   text-align: center;
@@ -71,7 +69,6 @@ const Description = styled.p`
   min-height: 0vw;
   margin-bottom: 5vh;
   transition: 0.8s;
-  /* transform: rotate(-30deg); */
   transform-origin: 'cecnter center';
   font-size: clamp(18px, 2vw, 40px);
 `
@@ -81,6 +78,7 @@ const ScrollDownWrapper = styled.div`
   position: fixed;
   bottom: 30px;
   z-index: 10;
+  pointer-events: none;
 
   ${({ theme }) => theme.media.u_sp`
     font-size: 12px;
@@ -104,6 +102,7 @@ const BottomWrapper = styled.div`
 `
 const FootPrintWrapper = styled.div`
   margin-left: 30px;
+  z-index: 30;
   ${({ theme }) => theme.media.u_sp`
     display: none; 
 `}
@@ -133,12 +132,11 @@ const MailTo = styled.a`
   grid-template-areas: auto;
   position: relative;
 
-
   &::after {
     content: '';
     position: absolute;
     left: 0;
-    top: 0; 
+    top: 0;
     height: 100%;
     background-color: #fff;
     mix-blend-mode: difference;
@@ -153,7 +151,6 @@ const MailTo = styled.a`
       width: 100%;
     }
   }
-
 `
 
 const Index: NextPage = () => {

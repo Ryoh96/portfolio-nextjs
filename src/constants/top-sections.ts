@@ -23,7 +23,8 @@ export const topSectionTexts = [
   },
   {
     title: "Contact",
-    description: "hello@kurokiryoh.com"
+    description: "hello@kurokiryoh.com",
+    link: "/contact"
   }
 ] as {
   title: string

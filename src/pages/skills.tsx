@@ -24,6 +24,7 @@ const PageDescription = styled(_Description)`
 
 const SkillsInner = styled.div`
   max-width: 1360px;
+  width: 92%;
   position: relative;
   z-index: 2;
   margin-inline: auto;
@@ -35,7 +36,7 @@ const ImageDoughnutsPercentWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center;
   flex-wrap: wrap;
-  column-gap: 30px;
+  column-gap: 40px;
   row-gap: 10vw;
 `
 
@@ -65,7 +66,6 @@ const Skills: NextPage = () => {
   return (
     <>
       <Header type="back" />
-      <Particle />
       <Container>
         <SkillsInner>
           <PageTitle>Skills</PageTitle>
