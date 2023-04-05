@@ -49,7 +49,7 @@ const ImageDoughnutsPercent = ({
   const { ref, inView } = useInView({
     threshold: 0.4,
     triggerOnce: true,
-    delay: 1500,
+    delay: 1000,
   })
   return (
     <>

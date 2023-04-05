@@ -30,10 +30,6 @@ const Ones = styled.div<{
   transition: transform 0.5s;
 
   transform: ${({ currentSection }) => `translateY(-${currentSection}em)`};
-
-  ${({ theme }) => theme.media.u_sp`
-    display: none;
-  `}
 `
 
 const SectionNumber = ({

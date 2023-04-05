@@ -94,5 +94,6 @@ export const useParticle = (
     window.addEventListener('resize', onResize, false)
     onResize()
     render()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }

@@ -1,14 +1,7 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import type { RefObject } from 'react'
-import {
-  createRef,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { createRef, useCallback, useLayoutEffect, useMemo, useRef } from 'react'
 import styled, { css } from 'styled-components'
 
 import Button from '@/components/atoms/Button'
@@ -21,7 +14,6 @@ import FootPrints from '@/components/molecules/FootPrints'
 import Gears from '@/components/molecules/Gears'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
-import { getRandomColor } from '@/components/utils/randomColor'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
@@ -96,20 +88,18 @@ const BottomWrapper = styled.div`
   bottom: 80px;
 
   align-items: flex-end;
-  ${({ theme }) => theme.media.u_sp`
-    justify-content: center;
-  `}
 `
 const FootPrintWrapper = styled.div`
   margin-left: 30px;
   z-index: 30;
-  ${({ theme }) => theme.media.u_sp`
+  ${({ theme }) => theme.media.u_sm`
     display: none; 
 `}
 `
 
 const SectionNumberWrapper = styled.div`
-  ${({ theme }) => theme.media.u_sp`
+  width: fit-content;
+  ${({ theme }) => theme.media.u_sm`
     display: none; 
 `}
 `

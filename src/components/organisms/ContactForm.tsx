@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import _Button from '@/components//atoms/Button'
 import SendEmail from '@/components/organisms/SendEmail'
+
 import Particle from './Particle'
 
 const ErrorText = styled.strong`
@@ -186,8 +187,8 @@ const ContactForm = () => {
         </Form>
       ) : (
         <>
-          <Particle/>
-          <SendEmail/>
+          <Particle />
+          <SendEmail />
         </>
       )}
     </>
