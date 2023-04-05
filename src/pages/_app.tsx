@@ -21,9 +21,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <AnimatePresence mode="wait">
             <motion.div
               key={router.route}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.4 } }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1, transition: {duration: 0.2} }}
+              exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.3 } }}
             >
               <Component {...pageProps} />
             </motion.div>
