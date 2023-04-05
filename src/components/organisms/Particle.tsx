@@ -1,7 +1,7 @@
 import { MutableRefObject, useRef } from 'react'
 import styled from 'styled-components'
 
-import { useParticle } from '@/pages/hooks/useParticle'
+import { useParticle } from '@/hooks/useParticle'
 
 const ParticleContainer = styled.div`
   position: fixed;

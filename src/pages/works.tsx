@@ -23,8 +23,17 @@ const Title = styled.h2.attrs({
   text-align: center;
   font-size: clamp(50px, 5vw, 80px);
   min-height: 0vw;
-  padding-top: 1.2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.4em;
 
+  ${({ theme }) => theme.media.u_xxl`
+    padding-top: 1.3em;
+    padding-bottom: 1.1em;
+  `}
+  ${({ theme }) => theme.media.u_xl`
+    padding-top: 1.3em;
+    padding-bottom: 0.8em;
+  `}
   ${({ theme }) => theme.media.u_sp`
     margin-bottom: 0.6em;
     padding-top: 60px;
@@ -38,7 +47,6 @@ const Title = styled.h2.attrs({
   ${({ theme }) => theme.media.u_xxs`
     padding-top: 1.7em;
   `}
-  padding-bottom: 0.8em;
 `
 
 const WorksInner = styled.div`
@@ -195,10 +203,10 @@ const Works: NextPage = () => {
                       <Image alt={work.title} src={work.url} fill />
                     </ImageWrapper>
                   </FlexContainer>
-                  <InView as="div" onChange={() => setCount(count + 1)} />
                 </Section>
               </SnapItem>
             ))}
+            <InView as="div" onChange={() => setCount(count + 1)} />
           </SnapContainer>
         </WorksInner>
       </Container>

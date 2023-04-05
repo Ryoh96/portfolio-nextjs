@@ -2,13 +2,14 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
+import { useIsMenuOpenContext } from '@/contexts/IsMenuOpenContext'
+
 type ScrollDownProps = {
   isLast: boolean
 }
 
 const Text = styled.span`
   font-size: 20px;
-  z-index: 10;
   position: relative;
 
   ${({ theme }) => theme.media.u_xl`
@@ -26,7 +27,6 @@ const ScrollDownWrapper = styled.div`
   position: relative;
   text-align: center;
   justify-items: center;
-  z-index: 10;
   font-size: 16px;
   display: grid;
   gap: 30px;
@@ -56,19 +56,24 @@ const IconWrapper = styled.div`
 `
 
 const ScrollDown = ({ isLast }: ScrollDownProps) => {
+  const { isMenuOpen } = useIsMenuOpenContext()
   return (
-    <ScrollDownWrapper>
-      {!isLast ? (
-        <>
-          <Text>Scroll Down</Text>
-          <IconWrapper>
-            <FontAwesomeIcon icon={faAngleDoubleDown} />
-          </IconWrapper>
-        </>
-      ) : (
-        <Text>© RYOH KUROKI. All Rights Reserved.</Text>
+    <>
+      {!isMenuOpen && (
+        <ScrollDownWrapper>
+          {!isLast ? (
+            <>
+              <Text>Scroll Down</Text>
+              <IconWrapper>
+                <FontAwesomeIcon icon={faAngleDoubleDown} />
+              </IconWrapper>
+            </>
+          ) : (
+            <Text>© RYOH KUROKI. All Rights Reserved.</Text>
+          )}
+        </ScrollDownWrapper>
       )}
-    </ScrollDownWrapper>
+    </>
   )
 }
 

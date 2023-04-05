@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react'
 import styled from 'styled-components'
 
-import { useCurrentSectionContext } from '@/pages/contexts/CurrentSectionContext'
+import { useCurrentSectionContext } from '@/contexts/CurrentSectionContext'
 
 import AroundGear from '../atoms/AroundGear'
 

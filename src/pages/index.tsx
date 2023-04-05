@@ -4,15 +4,12 @@ import type { RefObject } from 'react'
 import { createRef, useCallback, useLayoutEffect, useMemo, useRef } from 'react'
 import styled, { css } from 'styled-components'
 
-import AroundGear from '@/components/atoms/AroundGear'
-import BgGear from '@/components/atoms/BgGear'
 import Button from '@/components/atoms/Button'
 import ScrollDown from '@/components/atoms/ScrollDown'
 import SectionNumber from '@/components/atoms/SectionNumber'
 import Container from '@/components/layout/Container'
 import SnapContainer from '@/components/layout/SnapContainer'
 import SnapItem from '@/components/layout/SnapItem'
-import AroundGears from '@/components/molecules/AroundGears'
 import FootPrints from '@/components/molecules/FootPrints'
 import Gears from '@/components/molecules/Gears'
 import Header from '@/components/organisms/Header'
@@ -20,8 +17,8 @@ import Particle from '@/components/organisms/Particle'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
-import { useCurrentSectionContext } from './contexts/CurrentSectionContext'
-import { useInterSection } from './hooks/useInterSection'
+import { useCurrentSectionContext } from '../contexts/CurrentSectionContext'
+import { useInterSection } from '../hooks/useInterSection'
 
 const Section = styled.section.attrs({
   className: prata.className,

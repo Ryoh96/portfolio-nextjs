@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useEffect, useReducer, useRef, useState } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 
+import { useIsMenuOpenContext } from '@/contexts/IsMenuOpenContext'
 import { prata } from '@/font/prata'
 
 import HamburgerButton from '../atoms/HamburgerButton'
@@ -16,21 +17,21 @@ const gnavItems = [
 
 const GnavList = styled.ul.attrs({
   className: prata.className,
-})<{ isOpen: boolean }>`
+})<{ isMenuOpen: boolean }>`
   place-content: center;
   display: grid;
-  gap: 0.8em;
+  gap: 0.9em;
   text-align: center;
   position: fixed;
   inset: 0;
   background-color: #aaa;
   transition: opacity 0.5s ease-out;
-  font-size: 32px;
+  font-size: 42px;
   opacity: 0;
   color: #fff;
   pointer-events: none;
-  ${({ isOpen }) =>
-    isOpen
+  ${({ isMenuOpen }) =>
+    isMenuOpen
       ? css`
           z-index: 99999;
           opacity: 1;
@@ -61,7 +62,7 @@ const GnavItem = styled.li<{ isShow: boolean }>`
     /* opacity: 0; */
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out, opacity 1s ease-out;
-    transition-delay: .5s;
+    transition-delay: 0.5s;
 
     ${({ isShow }) =>
       isShow &&
@@ -69,6 +70,23 @@ const GnavItem = styled.li<{ isShow: boolean }>`
         transform: translateX(0);
         opacity: 1;
       `};
+    &::before {
+      content: '';
+      display: block;
+      background-color: #000;
+      width: 0;
+      height: 15%;
+      bottom: 0;
+      position: absolute;
+      transition: 0.2s ease-in-out;
+    }
+    &:hover {
+      opacity: 0.6;
+      &::before {
+        width: 100%;
+      }
+      // text-decoration: underline;
+    }
   }
 `
 
@@ -78,7 +96,7 @@ const BlackBox = styled.div<{ isShow: boolean }>`
   height: 100%;
   transform: translate(101%);
   animation-timing-function: cubic-bezier(0.94, 0, 0.15, 1);
-  ${({ isShow }) => isShow && `animation: fade 1.5s forwards`};
+  ${({ isShow }) => isShow && `animation: fade 1s forwards`};
 
   @keyframes fade {
     0% {
@@ -97,13 +115,13 @@ const BlackBox = styled.div<{ isShow: boolean }>`
 `
 
 const Gnav = () => {
-  const [isOpen, toggleIsOpen] = useReducer((isOpen) => !isOpen, false)
+  const { isMenuOpen, toggleIsMenuOpen } = useIsMenuOpenContext()
   const [isShowList, setIsShowList] = useState<boolean[]>([])
   let timerIds = useRef<NodeJS.Timeout[]>([])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (isOpen) {
+      if (isMenuOpen) {
         setIsShowList((prevState) => {
           const newState = [...prevState]
           newState.push(true)
@@ -114,23 +132,22 @@ const Gnav = () => {
       }
     }, 300)
     return () => clearInterval(intervalId)
-  }, [isOpen])
-
+  }, [isMenuOpen])
 
   return (
     <>
-      <GnavList isOpen={isOpen}>
+      <GnavList isMenuOpen={isMenuOpen}>
         {gnavItems.map((item, index) => (
           <Link href={item.href} key={index}>
             <GnavItem isShow={isShowList[index]}>
               <span>{item.title}</span>
-              <BlackBox isShow={isShowList[index]}/>
+              <BlackBox isShow={isShowList[index]} />
             </GnavItem>
           </Link>
         ))}
       </GnavList>
-      <HamburgerButton onClick={toggleIsOpen} isOpen={isOpen} />
-      {isOpen && (
+      <HamburgerButton onClick={toggleIsMenuOpen} isOpen={isMenuOpen} />
+      {isMenuOpen && (
         <style jsx global>{`
           body {
             overflow: hidden;
