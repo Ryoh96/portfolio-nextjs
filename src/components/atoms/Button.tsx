@@ -2,7 +2,11 @@ import styled from 'styled-components'
 
 import { prata } from '@/font/prata'
 
-const ButtonWrapper = styled.button`
+import { getRandomColor } from '../utils/randomColor'
+
+const ButtonWrapper = styled.button<{
+  current: boolean
+}>`
   background-image: linear-gradient(to right, #555 50%, #fff 50%);
   background-size: 200% 100%;
   font-size: 20px;
@@ -39,6 +43,20 @@ const ButtonWrapper = styled.button`
   ${({ theme }) => theme.media.u_xs`
     transform: scale(0.65);
   `}
+
+    position: relative;
+  /* &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+    background-color: ${({ current }) =>
+      current ? 'transparent' : getRandomColor()};
+  } */
 `
 
 const ButtonInner = styled.div.attrs({
@@ -65,11 +83,12 @@ const ButtonInner = styled.div.attrs({
 
 type ButtonProps = {
   children: string
+  current?: boolean
 }
 
-const Button = ({ children }: ButtonProps) => {
+const Button = ({ children, current = false }: ButtonProps) => {
   return (
-    <ButtonWrapper>
+    <ButtonWrapper current={current}>
       <ButtonInner>{children}</ButtonInner>
     </ButtonWrapper>
   )

@@ -5,6 +5,7 @@ const Base = createGlobalStyle`
 
 * {
   box-sizing: border-box;
+  line-height: 1.8;
 }
 
 html {

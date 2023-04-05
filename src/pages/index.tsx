@@ -1,7 +1,14 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import type { RefObject } from 'react'
-import { createRef, useCallback, useLayoutEffect, useMemo, useRef } from 'react'
+import {
+  createRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+} from 'react'
 import styled, { css } from 'styled-components'
 
 import Button from '@/components/atoms/Button'
@@ -14,6 +21,7 @@ import FootPrints from '@/components/molecules/FootPrints'
 import Gears from '@/components/molecules/Gears'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
+import { getRandomColor } from '@/components/utils/randomColor'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
@@ -22,18 +30,30 @@ import { useInterSection } from '../hooks/useInterSection'
 
 const Section = styled.section.attrs({
   className: prata.className,
-})`
+})<{ isCurrent: boolean }>`
   width: 100%;
   height: 100%;
   scroll-snap-align: start;
   box-sizing: border-box !important;
   display: grid;
-  transition: opacity 1s ease-in-out;
   mix-blend-mode: difference;
+  opacity: 0;
+  transition-delay: 0.5s;
 
   align-content: center;
   justify-items: center;
   gap: 7svh;
+  transition: opacity 1s ease-in, color 0.5s;
+
+  ${({ isCurrent }) =>
+    isCurrent
+      ? css`
+          opacity: 1;
+        `
+      : css`
+          opacity: 0;
+          /* color: ${getRandomColor()}; */
+        `}
 `
 
 const Title = styled.h1`
@@ -44,6 +64,7 @@ const Title = styled.h1`
   /* transform: rotate(-10deg); */
   transform-origin: 'cecnter center';
   line-height: 1;
+  text-align: center;
 `
 
 const Description = styled.p`
@@ -77,12 +98,63 @@ const BottomWrapper = styled.div`
   bottom: 80px;
 
   align-items: flex-end;
+  ${({ theme }) => theme.media.u_sp`
+    justify-content: center;
+  `}
 `
 const FootPrintWrapper = styled.div`
   margin-left: 30px;
+  ${({ theme }) => theme.media.u_sp`
+    display: none; 
+`}
 `
 
-const SectionNumberWrapper = styled.div``
+const SectionNumberWrapper = styled.div`
+  ${({ theme }) => theme.media.u_sp`
+    display: none; 
+`}
+`
+
+const MailTo = styled.a`
+  min-height: 0vw;
+  margin-bottom: 5vh;
+  transition: 0.8s;
+  /* transform: rotate(-30deg); */
+  transform-origin: center center;
+  font-size: clamp(18px, 2vw, 40px);
+  color: inherit;
+  display: block;
+  text-decoration: underline;
+  padding: 0.3em;
+  padding-top: 1em;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  grid-template-areas: auto;
+  position: relative;
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; 
+    height: 100%;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    color: red;
+    z-index: 2;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+
+`
 
 const Index: NextPage = () => {
   const { currentSection, setCurrentSection, setIsIntersecting } =
@@ -126,9 +198,15 @@ const Index: NextPage = () => {
             id={`${index}`}
             ref={snapItemRefs.current[index]}
           >
-            <Section>
+            <Section isCurrent={currentSection === index}>
               <Title>{section.title}</Title>
-              <Description>{section.description}</Description>
+              {currentSection !== sectionLength - 1 ? (
+                <Description>{section.description}</Description>
+              ) : (
+                <MailTo href="mailto:hello@kurokiryoh.com">
+                  {section.description}
+                </MailTo>
+              )}
               {section.link && (
                 <Link href={section.link}>
                   <Button>Show more...</Button>

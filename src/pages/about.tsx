@@ -29,7 +29,7 @@ const Section = styled.section<{
   `}
 
   > * {
-    transition: all 3s;
+    transition: all 2s;
     opacity: 0;
   }
   ${({ childrenLength }) =>
@@ -90,6 +90,7 @@ const ListItem = styled.li`
   opacity: 0.9;
   display: flex;
   gap: 0.8em;
+  line-height: 1.8;
   align-items: center;
   ${({ theme }) => theme.media.u_xs`
       font-size: 15px;
@@ -119,9 +120,8 @@ const AboutWrapper = styled.div`
 `
 const About: NextPage = () => {
   const options = {
-    threshold: 0.4,
+    threshold: 0.6,
     triggerOnce: true,
-    delay: 1000,
   }
 
   const { ref: ref1, inView: inView1 } = useInView(options)

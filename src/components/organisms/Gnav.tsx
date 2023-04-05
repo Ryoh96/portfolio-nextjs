@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useEffect, useReducer, useRef, useState } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 
+import FootPrintsAnimation from '@/components/organisms/FootPrintAnimation'
+import { useCurrentSectionContext } from '@/contexts/CurrentSectionContext'
 import { useIsMenuOpenContext } from '@/contexts/IsMenuOpenContext'
 import { prata } from '@/font/prata'
 
@@ -30,6 +32,7 @@ const GnavList = styled.ul.attrs({
   opacity: 0;
   color: #fff;
   pointer-events: none;
+
   ${({ isMenuOpen }) =>
     isMenuOpen
       ? css`
@@ -59,15 +62,13 @@ const GnavItem = styled.li<{ isShow: boolean }>`
     width: 100%;
     display: block;
     justify-self: start;
-    /* opacity: 0; */
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out, opacity 1s ease-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
     transition-delay: 0.5s;
 
     ${({ isShow }) =>
       isShow &&
       css`
-        transform: translateX(0);
         opacity: 1;
       `};
     &::before {
@@ -114,10 +115,44 @@ const BlackBox = styled.div<{ isShow: boolean }>`
   }
 `
 
+const FootPrintAnimationContainer = styled.div`
+  position: fixed;
+  display: grid;
+  inset: 0;
+  z-index: 1000000;
+  grid-template-areas: auto;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+
+  > * {
+    grid-area: 1/ -1;
+  }
+`
+
+const FootPrintAnimationInner = styled.div<{
+  dir?: 'rev'
+}>`
+  ${({ dir }) =>
+    dir === 'rev'
+      ? css`
+          justify-self: end;
+          margin-right: 20%;
+          margin-bottom: 3%;
+          /* bottom: 0; */
+          /* transform: translateY(100%) rotate(80deg); */
+          transform: rotate(180deg);
+        `
+      : css`
+          margin-left: 20%;
+          margin-top: ;
+        `}
+`
+
 const Gnav = () => {
   const { isMenuOpen, toggleIsMenuOpen } = useIsMenuOpenContext()
   const [isShowList, setIsShowList] = useState<boolean[]>([])
   let timerIds = useRef<NodeJS.Timeout[]>([])
+  const { setCurrentSection } = useCurrentSectionContext()
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -134,11 +169,20 @@ const Gnav = () => {
     return () => clearInterval(intervalId)
   }, [isMenuOpen])
 
+  const handleClick = (index: number) => {
+    setCurrentSection(index)
+    toggleIsMenuOpen()
+  }
+
   return (
     <>
       <GnavList isMenuOpen={isMenuOpen}>
         {gnavItems.map((item, index) => (
-          <Link href={item.href} key={index}>
+          <Link
+            href={item.href}
+            key={index}
+            onClick={() => handleClick(index)}
+          >
             <GnavItem isShow={isShowList[index]}>
               <span>{item.title}</span>
               <BlackBox isShow={isShowList[index]} />
@@ -155,6 +199,16 @@ const Gnav = () => {
             width: 100%;
           }
         `}</style>
+      )}
+      {isMenuOpen && (
+        <FootPrintAnimationContainer>
+          <FootPrintAnimationInner>
+            <FootPrintsAnimation />
+          </FootPrintAnimationInner>
+          <FootPrintAnimationInner dir="rev">
+            <FootPrintsAnimation />
+          </FootPrintAnimationInner>
+        </FootPrintAnimationContainer>
       )}
     </>
   )

@@ -6,17 +6,20 @@ export const topSectionTexts = [
   {
     title: "About",
     description: "経歴・引き受けている仕事など",
-    link: "/about"
+    link: "/about",
+    pic: "/cat.jpg"
   },
   {
     title: "Skill",
     description: "使用可能な技術",
-    link: "/skills"
+    link: "/skills",
+    pic: "/cat.jpg"
   },
   {
     title: "Works",
     description: "制作してきた作品",
-    link: "/works"
+    link: "/works",
+    pic: "/cat.jpg"
   },
   {
     title: "Contact",
@@ -26,4 +29,5 @@ export const topSectionTexts = [
   title: string
   description: string
   link?: string
+  pic?: string
 }[]
