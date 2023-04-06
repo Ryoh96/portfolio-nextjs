@@ -129,11 +129,11 @@ const ImageWrapper = styled.figure<{
   isShow: boolean
 }>`
   flex: 1 1 50%;
-  max-height: 60svh;
+  max-height: 50svh;
   overflow-y: hidden;
   position: relative;
   border: 3px solid #fff;
-  height: content-fit;
+  height: 50svh;
 
   transform: translate(40px, 100px);
   opacity: 0;

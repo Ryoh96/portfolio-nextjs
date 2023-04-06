@@ -37,7 +37,7 @@ type ImageDoughnutsPercentProps = {
 }
 
 const ImageDoughnutsPercentWrapper = styled.div`
-  height: 432px;
+  height: 462px;
 `
 
 const ImageDoughnutsPercent = ({
@@ -47,7 +47,7 @@ const ImageDoughnutsPercent = ({
   isAppear = false,
 }: ImageDoughnutsPercentProps) => {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.6,
     triggerOnce: true,
     delay: 1000,
   })

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import styled from 'styled-components'
@@ -10,6 +11,7 @@ import SnapItem from '@/components/layout/SnapItem'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
 import WorkSection from '@/components/organisms/WorkSection'
+import Meta from '@/components/utils/Meta'
 import { works } from '@/constants/works'
 
 const WorksInner = styled.div`
@@ -36,6 +38,13 @@ const Works: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <Meta
+          title="Works"
+          desc="これまで作成してきたものについて記載"
+          url="works"
+        />
+      </Head>
       <Header type="back" />
       <Particle />
       <Container>

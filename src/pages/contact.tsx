@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import { useInView } from 'react-intersection-observer'
 import styled, { css } from 'styled-components'
 
@@ -8,7 +9,8 @@ import Container from '@/components/layout/Container'
 import ContactForm from '@/components/organisms/ContactForm'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
-import { getRandomColor } from '@/components/utils/randomColor'
+import Meta from '@/components/utils/Meta'
+import { getRandomColor } from '@/utils/randomColor'
 
 const PageTitle = styled(_Title)`
   padding-top: 1em;
@@ -32,6 +34,9 @@ const ContactInner = styled.div`
 const Contact = () => {
   return (
     <>
+      <Head>
+        <Meta title="Contact" desc="お問い合わせのページ。" url="/contact" />
+      </Head>
       <Header type="back" key="contact" />
       <ContactInner>
         <PageTitle>Contact</PageTitle>

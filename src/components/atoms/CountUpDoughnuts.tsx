@@ -24,7 +24,7 @@ const CountUpDoughnut = ({ percentage, className }: CountUpDoughnutsProps) => {
     cutout: '80%',
   }
 
-  return <Doughnut data={data} options={options} className={className} style={{maxWidth: "300px"}}/>
+  return <Doughnut data={data} options={options} className={className} />
 }
 
 export default CountUpDoughnut

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import type { RefObject } from 'react'
 import { createRef, useEffect, useMemo, useRef, useState } from 'react'
 import { InView } from 'react-intersection-observer'
@@ -11,6 +12,7 @@ import Container from '@/components/layout/Container'
 import Header from '@/components/organisms/Header'
 import ImageDoughnutsPercent from '@/components/organisms/ImageDoughnutPercent'
 import Particle from '@/components/organisms/Particle'
+import Meta from '@/components/utils/Meta'
 import { skills } from '@/constants/skills'
 
 const PageTitle = styled(_Title)`
@@ -65,6 +67,13 @@ const Skills: NextPage = () => {
   const [count, setCount] = useState(0)
   return (
     <>
+      <Head>
+        <Meta
+          title="Skills"
+          desc="使用可能な言語、ライブラリ、フレームワーク等について記載。"
+          url="/skills"
+        />
+      </Head>
       <Header type="back" />
       <Container>
         <SkillsInner>

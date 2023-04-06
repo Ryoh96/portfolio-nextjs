@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import type { RefObject } from 'react'
 import { createRef, useCallback, useLayoutEffect, useMemo, useRef } from 'react'
@@ -14,6 +15,7 @@ import FootPrints from '@/components/molecules/FootPrints'
 import Gears from '@/components/molecules/Gears'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
+import Meta from '@/components/utils/Meta'
 import { topSectionTexts } from '@/constants/top-sections'
 import { prata } from '@/font/prata'
 
@@ -86,7 +88,6 @@ const BottomWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   bottom: 80px;
-
   align-items: flex-end;
 `
 const FootPrintWrapper = styled.div`
@@ -176,6 +177,9 @@ const Index: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <Meta desc="トップページ" />
+      </Head>
       <Header />
       <Particle />
       <SnapContainer ref={snapContainerRef}>
@@ -227,7 +231,6 @@ const Index: NextPage = () => {
         />
       </ScrollDownWrapper>
       <Gears />
-      {/* <AroundGears /> */}
     </>
   )
 }

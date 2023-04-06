@@ -33,7 +33,7 @@ export const works: WorkType[] = [
   },
   {
     title: 'WordPressブログ',
-    url: '/thumb-tekrog.jpg',
+    url: '/tekrog-old.jpg',
     list: [
       {
         term: '開発フレームワーク・言語',
@@ -51,7 +51,7 @@ export const works: WorkType[] = [
   },
   {
     title: 'Portfolio(ver.3)',
-    url: '/thumb-portofolio.jpg',
+    url: '/portfolio3.png',
     list: [
       {
         term: '開発フレームワーク・言語',

@@ -60,16 +60,16 @@ const Gear = styled.div<{
   ${({ layer }) =>
     layer === 1
       ? css`
-          z-index: -1;
+          z-index: -100;
         `
       : layer === 2
       ? css`
-          z-index: -2;
+          z-index: -200;
           opacity: 0.6;
         `
       : layer === 3
       ? css`
-          z-index: -3;
+          z-index: -300;
           opacity: 0.5;
         `
       : null} 

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { prata } from '@/font/prata'
 
-import { getRandomColor } from '../utils/randomColor'
+import { getRandomColor } from '../../utils/randomColor'
 
 const ButtonWrapper = styled.button<{
   current: boolean
@@ -11,7 +11,6 @@ const ButtonWrapper = styled.button<{
   background-image: linear-gradient(to right, #555 50%, #fff 50%);
   background-size: 200% 100%;
   font-size: 20px;
-  font-family: $en;
   font-weight: bold;
   background-position-x: 100%;
   transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -19,10 +18,12 @@ const ButtonWrapper = styled.button<{
   cursor: pointer;
   border-radius: 10px;
 
-  ${({disabled}) => disabled && css`
-    pointer-events: none;
-    opacity: 0.5;
-  `}
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.5;
+    `}
 
   &:hover {
     background-position-x: 0;
@@ -94,7 +95,12 @@ type ButtonProps = {
   disabled?: boolean
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button = ({ children, className, current = false, disabled=false }: ButtonProps) => {
+const Button = ({
+  children,
+  className,
+  current = false,
+  disabled = false,
+}: ButtonProps) => {
   return (
     <ButtonWrapper current={current} className={className} disabled={disabled}>
       <ButtonInner>{children}</ButtonInner>
