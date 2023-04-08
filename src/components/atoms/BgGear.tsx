@@ -104,7 +104,6 @@ type BgGearProps = {
 }
 
 const BgGear = ({ index, layer, speed, current }: BgGearProps) => {
-  console.log(index, speed)
   const gearRef = useRef<HTMLDivElement | null>(null)
   const rot = useRef(0)
   const coef = useRef(0.8)

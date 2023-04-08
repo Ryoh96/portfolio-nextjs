@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       pass: process.env.MAIL_PASS,
     },
   })
-
+  console.log(process.env.MAIL_HOST)
   const data = JSON.parse(req.body)
   await transporter.sendMail({
     from: process.env.MAIL_SYSTEM,
