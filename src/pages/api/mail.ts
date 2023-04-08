@@ -5,18 +5,18 @@ import { createTransport } from 'nodemailer'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const transporter = createTransport({
     port: 465,
-    host: process.env.NEXT_PUBLIC_MAIL_HOST,
+    host: process.env.MAIL_HOST,
     secure: true,
     auth: {
-      user: process.env.NEXT_PUBLIC_MAIL_USER,
-      pass: process.env.NEXT_PUBLIC_MAIL_PASS,
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
     },
   })
 
   const data = JSON.parse(req.body)
   await transporter.sendMail({
-    from: process.env.NEXT_PUBLIC_MAIL_SYSTEM,
-    to: process.env.NEXT_PUBLIC_MAIL_USER,
+    from: process.env.MAIL_SYSTEM,
+    to: process.env.MAIL_USER,
     subject: '問い合わせが来ました',
     text: `
     名前
@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   await transporter.sendMail({
-    from: process.env.NEXT_PUBLIC_MAIL_USER,
+    from: process.env.MAIL_USER,
     to: data.email,
     subject: '以下の内容でお問い合わせを受け付けました',
     text: `
