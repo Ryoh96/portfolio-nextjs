@@ -49,7 +49,8 @@ const PopUpImage = ({ url, appear, className }: PopupImageProps) => {
             objectFit: 'contain',
             width: '100%',
           }}
-          priority
+          priority={true}
+          loading="eager"
         />
       </ImageWrapper>
     </>
