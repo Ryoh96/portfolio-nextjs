@@ -4,9 +4,10 @@ import { createTransport } from 'nodemailer'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const transporter = createTransport({
-    port: 465,
+    port: 587,
     host: process.env.MAIL_HOST,
-    secure: true,
+    secure: false,
+    requireTLS: true,
     auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS,
