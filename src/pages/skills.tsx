@@ -67,13 +67,11 @@ const Skills: NextPage = () => {
   const [count, setCount] = useState(0)
   return (
     <>
-      <Head>
-        <Meta
-          title="Skills"
-          desc="使用可能な言語、ライブラリ、フレームワーク等について記載。"
-          url="/skills"
-        />
-      </Head>
+      <Meta
+        title="Skills"
+        desc="使用可能な言語、ライブラリ、フレームワーク等について記載。"
+        url="/skills"
+      />
       <Header type="back" />
       <Container>
         <SkillsInner>

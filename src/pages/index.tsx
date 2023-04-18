@@ -177,9 +177,7 @@ const Index: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <Meta desc="トップページ" />
-      </Head>
+      <Meta desc="トップページ" />
       <Header />
       <Particle />
       <SnapContainer ref={snapContainerRef}>

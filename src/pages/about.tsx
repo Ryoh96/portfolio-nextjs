@@ -132,13 +132,11 @@ const About: NextPage = () => {
   const { ref: ref4, inView: inView4 } = useInView(options)
   return (
     <>
-      <Head>
-        <Meta
-          title="About"
-          desc="Aboutページ。経歴や可能な仕事、資格や受賞歴について記載。"
-          url="/about"
-        />
-      </Head>
+      <Meta
+        title="About"
+        desc="Aboutページ。経歴や可能な仕事、資格や受賞歴について記載。"
+        url="/about"
+      />
       <Header type="back" key="about" />
       <AboutWrapper>
         <Container>

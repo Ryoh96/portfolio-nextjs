@@ -38,13 +38,11 @@ const Works: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <Meta
-          title="Works"
-          desc="これまで作成してきたものについて記載"
-          url="works"
-        />
-      </Head>
+      <Meta
+        title="Works"
+        desc="これまで作成してきたものについて記載"
+        url="works"
+      />
       <Header type="back" />
       <Particle />
       <Container>

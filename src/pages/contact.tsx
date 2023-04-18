@@ -34,9 +34,7 @@ const ContactInner = styled.div`
 const Contact = () => {
   return (
     <>
-      <Head>
-        <Meta title="Contact" desc="お問い合わせのページ。" url="/contact" />
-      </Head>
+      <Meta title="Contact" desc="お問い合わせのページ。" url="/contact" />
       <Header type="back" key="contact" />
       <ContactInner>
         <PageTitle>Contact</PageTitle>
