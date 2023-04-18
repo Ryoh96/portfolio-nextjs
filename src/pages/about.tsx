@@ -122,12 +122,12 @@ const AboutWrapper = styled.div`
 `
 const About: NextPage = () => {
   const options = {
-    threshold: 0.6,
+    threshold: 0.4,
     triggerOnce: true,
   }
 
   const { ref: ref1, inView: inView1 } = useInView(options)
-  const { ref: ref2, inView: inView2 } = useInView({ ...options, delay: 1000 })
+  const { ref: ref2, inView: inView2 } = useInView({ ...options, delay: 500 })
   const { ref: ref3, inView: inView3 } = useInView(options)
   const { ref: ref4, inView: inView4 } = useInView(options)
   return (
