@@ -39,7 +39,7 @@ const ImageDoughnutsPercentWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   column-gap: 40px;
-  row-gap: 10vw;
+  row-gap: 7vw;
 `
 
 const ScrollDownWrapper = styled.div`

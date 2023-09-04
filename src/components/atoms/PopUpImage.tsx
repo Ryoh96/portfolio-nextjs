@@ -4,11 +4,10 @@ import styled, { css } from 'styled-components'
 const ImageWrapper = styled.figure<{
   appear: boolean
 }>`
-
   img {
     position: static !important;
   }
-
+  position: relative;
   transform: scale(0);
   color: ${({ appear }) => appear && 'red'};
 
@@ -20,13 +19,13 @@ const ImageWrapper = styled.figure<{
 
   @keyframes popUp {
     0% {
-      transform:  scale(0);
+      transform: scale(0);
     }
     90% {
-      transform:  scale(140%);
+      transform: scale(140%);
     }
     100% {
-      transform:  scale(100%);
+      transform: scale(100%);
     }
   }
 `
@@ -51,6 +50,7 @@ const PopUpImage = ({ url, appear, className }: PopupImageProps) => {
           }}
           priority={true}
           loading="eager"
+          sizes="(max-width: 624px) 100vw, (max-width: 959px) 50vw, (max-width: 1295px) 33vw, 25vw"
         />
       </ImageWrapper>
     </>

@@ -44,7 +44,6 @@ const Works: NextPage = () => {
         url="works"
       />
       <Header type="back" />
-      <Particle />
       <Container>
         <WorksInner>
           <SnapContainer>
@@ -61,6 +60,7 @@ const Works: NextPage = () => {
       <ScrollDownWrapper>
         <ScrollDown isLast={count >= 2 ? true : false} />
       </ScrollDownWrapper>
+      <Particle />
     </>
   )
 }

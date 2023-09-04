@@ -1,129 +1,82 @@
-import { gsap } from 'gsap'
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import Image from 'next/image'
 import styled, { css } from 'styled-components'
+
+import { hueRotation } from '@/animations/hueRotation'
+import { rotateAnimation } from '@/animations/rotateAnimation'
+import { SATURATE, SEPIA } from '@/constants/animations'
 
 const sepia = '120%'
 const saturate = '800%'
 
-const Gear = styled.div<{
-  index: number
-  layer: number
+const StyledImage = styled(Image)<{
+  direction: 'default' | 'reverse'
+  top?: number
+  left?: number
+  bottom?: number
+  right?: number
+  opacity: number
 }>`
-  transition: transform 0.5s;
+  opacity: ${({ opacity }) => opacity};
+
+  animation: ${rotateAnimation} 20s infinite linear
+    ${({ direction }) => (direction === 'default' ? 'normal' : 'reverse')};
+
+  z-index: -1;
   position: absolute;
-  background-repeat: no-repeat;
-
-  ${({ index }) =>
-    index === 0
-      ? css`
-          background-image: url(/gear06.svg);
-          width: 600px;
-          height: 600px;
-          left: -100px;
-          top: -100px;
-        `
-      // : index === 1
-      // ? css`
-      //     background-image: url(gear02.svg);
-      //     width: 400px;
-      //     height: 400px;
-      //     position: fixed;
-      //     left: calc(50% - 70px);
-      //     top: calc(50% - 433px);
-      //   `
-      // : index === 2
-      // ? css`
-      //     background-image: url(/gear03.svg);
-      //     width: 300px;
-      //     height: 300px;
-      //     left: calc(50% + 221px);
-      //     top: calc(50% - 152px);
-      //   `
-      // : index === 3
-      // ? css`
-      //     background-image: url(/gear04.png);
-      //     width: 500px;
-      //     height: 500px;
-      //     left: calc(50% - 100px);
-      //     top: calc(50% - 190px);
-      //   `
-      // : index === 4
-      // ? css`
-      //     background-image: url(/gear05.svg);
-      //     width: 550px;
-      //     height: 550px;
-      //     left: calc(50% - 480px);
-      //     top: calc(50% - 440px);
-      //   `
-      : null}
-
-  ${({ layer }) =>
-    layer === 1
-      ? css`
-          z-index: -1;
-        `
-      : layer === 2
-      ? css`
-          z-index: -2;
-          opacity: 0.6;
-        `
-      : layer === 3
-      ? css`
-          z-index: -3;
-          opacity: 0.5;
-        `
-      : null} 
-    // transform: translateZ(0);
-  will-change: filter;
-  filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24);
-
-  animation: hue-rotate 30s infinite;
-  @keyframes hue-rotate {
-    0% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(0deg);
-    }
-
-    50% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(180deg);
-    }
-
-    100% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(360deg);
-    }
-  }
+  ${({ top, right, left, bottom }) => css`
+    ${top && 'top:' + top + 'px'};
+    ${left && 'left:' + left + 'px'};
+    ${right && 'right:' + right + 'px'};
+    ${bottom && 'bottom:' + bottom + 'px'};
+  `}
 `
 
-type BgGearProps = {
-  index: number
-  layer: number
-  speed: number
-  current: number
+const StyledImageWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  position: fixed;
+
+  ${({ theme }) => theme.media.u_3xl`
+    transform: scale(0.9);
+  `}
+  ${({ theme }) => theme.media.u_xxl`
+    transform: scale(0.8);
+  `}
+  ${({ theme }) => theme.media.u_xl`
+    transform: scale(0.7);
+  `}
+  ${({ theme }) => theme.media.u_lg`
+    transform: scale(0.6);
+  `}
+  ${({ theme }) => theme.media.u_md`
+    transform: scale(0.7);
+  `}
+  ${({ theme }) => theme.media.u_sp`
+    transform: scale(0.45);
+  `}
+  ${({ theme }) => theme.media.u_sm`
+    transform: scale(0.4);
+  `}
+  ${({ theme }) => theme.media.u_xs`
+    transform: scale(0.3);
+  `}
+`
+
+type Props = {
+  src: string
+  top?: number
+  left?: number
+  right?: number
+  bottom?: number
+  width: number
+  height: number
+  direction: 'default' | 'reverse'
+  opacity: number
 }
 
-const AroundGear = ({ index, layer, speed, current }: BgGearProps) => {
-  console.log(index, speed)
-  const gearRef = useRef<HTMLDivElement | null>(null)
-  const rot = useRef(0)
-  const coef = useRef(0.8)
-  useEffect(() => {
-    gsap.set(gearRef.current, {
-      rotation: 0,
-    })
-  }, [])
-  useLayoutEffect(() => {
-    console.log(speed, rot.current)
-    rot.current += speed * coef.current
-    gsap.to(gearRef.current, {
-      rotation: `${rot.current}`,
-      ease: 'none',
-      duration: 0.1,
-    })
-  }, [current, speed])
-
-  return <Gear ref={gearRef} index={index} layer={layer} />
+const AroundGear = (props: Props) => {
+  return <StyledImage alt="" {...props} loading="eager" />
 }
 
 export default AroundGear

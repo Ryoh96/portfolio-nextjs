@@ -8,7 +8,7 @@ const Title = styled.h1.attrs({
   font-size: clamp(71.7px, 9.33vw, 140px);
   text-align: center;
 
-  ${({theme}) => theme.media.u_xs`
+  ${({ theme }) => theme.media.u_xs`
     font-size: 60px;
   `}
 `

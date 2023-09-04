@@ -168,7 +168,7 @@ const HamburgerButtonContainer = styled.div<{ isOpen: boolean }>`
 
   &:hover {
     transform: scale(1.2) rotate(360deg);
-    ${({isOpen}) => isOpen && "transform: revert;"}
+    ${({ isOpen }) => isOpen && 'transform: revert;'}
   }
 
   display: grid;

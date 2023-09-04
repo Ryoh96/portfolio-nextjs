@@ -9,6 +9,7 @@ const GearsWrapper = styled.div`
   position: fixed;
   inset: 0;
   transform-origin: center center;
+  pointer-events: none;
 
   ${({ theme }) => theme.media.u_3xl`
     transform: scale(0.9);

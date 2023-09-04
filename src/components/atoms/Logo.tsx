@@ -11,6 +11,7 @@ const ImageWrapper = styled.figure`
   height: 80px;
   cursor: pointer;
   transition: transform 0.4s;
+  position: relative;
 
   &:hover {
     transform: scale(1.2) rotate(360deg);

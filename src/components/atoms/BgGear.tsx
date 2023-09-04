@@ -2,8 +2,8 @@ import { gsap } from 'gsap'
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 
-const sepia = '120%'
-const saturate = '800%'
+import { hueRotation } from '@/animations/hueRotation'
+import { SATURATE, SEPIA } from '@/constants/animations'
 
 const Gear = styled.div<{
   index: number
@@ -16,7 +16,7 @@ const Gear = styled.div<{
   ${({ index }) =>
     index === 0
       ? css`
-          background-image: url(/gear01.svg);
+          background-image: url(/gear10.svg);
           width: 600px;
           height: 600px;
           left: calc(50% - 560px);
@@ -33,7 +33,7 @@ const Gear = styled.div<{
         `
       : index === 2
       ? css`
-          background-image: url(/gear03.svg);
+          background-image: url(/gear22.svg);
           width: 300px;
           height: 300px;
           left: calc(50% + 221px);
@@ -41,7 +41,7 @@ const Gear = styled.div<{
         `
       : index === 3
       ? css`
-          background-image: url(/gear04.png);
+          background-image: url(/gear01.svg);
           width: 500px;
           height: 500px;
           left: calc(50% - 100px);
@@ -49,7 +49,7 @@ const Gear = styled.div<{
         `
       : index === 4
       ? css`
-          background-image: url(/gear05.svg);
+          background-image: url(/gear24.svg);
           width: 550px;
           height: 550px;
           left: calc(50% - 480px);
@@ -75,25 +75,8 @@ const Gear = styled.div<{
       : null} 
     // transform: translateZ(0);
   will-change: filter;
-  filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24);
-
-  animation: hue-rotate 30s infinite;
-  @keyframes hue-rotate {
-    0% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(0deg);
-    }
-
-    50% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(180deg);
-    }
-
-    100% {
-      filter: sepia(${sepia}) saturate(${saturate}) brightness(0.24)
-        hue-rotate(360deg);
-    }
-  }
+  filter: sepia(${SEPIA}) saturate(${SATURATE}) brightness(0.24);
+  animation: ${hueRotation()} 30s infinite;
 `
 
 type BgGearProps = {
@@ -113,7 +96,7 @@ const BgGear = ({ index, layer, speed, current }: BgGearProps) => {
     })
   }, [])
   useLayoutEffect(() => {
-    rot.current +=  speed * coef.current
+    rot.current += speed * coef.current
     gsap.to(gearRef.current, {
       rotation: `${rot.current}`,
       ease: 'none',

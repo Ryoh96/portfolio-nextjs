@@ -30,10 +30,7 @@ type ImageDoughnutsPercentProps = {
   percentage: number
 }
 
-const ImageDoughnuts = ({
-  url,
-  percentage
-}: ImageDoughnutsPercentProps) => {
+const ImageDoughnuts = ({ url, percentage }: ImageDoughnutsPercentProps) => {
   return (
     <ImageWrapper>
       <PopUpImage url={url} appear={true} />

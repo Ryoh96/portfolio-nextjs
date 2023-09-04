@@ -7,8 +7,29 @@ export type WorkType = {
   }[]
 }
 
-
 export const works: WorkType[] = [
+  { 
+    title:"筋トレ管理ノートアプリ",
+    url: "/workout-app.jpg",
+    list: [
+      {
+        term: "URL",
+        desc: "https://workout-mocha.vercel.app/about"
+      },
+      {
+        term: '開発言語',
+        desc: 'Next.js / TypeScript',
+      },
+      {
+        term: 'その他使用技術',
+        desc: 'GraphQL / Tailwind CSS / Prisma',
+      },
+      {
+        term: "補足",
+        desc: "DB設計、バック /フロントエンド全てを個人開発"
+      }
+    ]
+  },
   {
     title: 'Jamstackブログ',
     url: '/thumb-tekrog.jpg',
@@ -18,7 +39,7 @@ export const works: WorkType[] = [
         desc: 'https://tekrog.com',
       },
       {
-        term: '開発フレームワーク・言語',
+        term: '開発言語',
         desc: 'Next.js / TypeScript',
       },
       {
@@ -36,7 +57,7 @@ export const works: WorkType[] = [
     url: '/tekrog-old.jpg',
     list: [
       {
-        term: '開発フレームワーク・言語',
+        term: '開発言語',
         desc: 'HTML5 / Sass / JavaScript / PHP',
       },
       {
@@ -54,7 +75,7 @@ export const works: WorkType[] = [
     url: '/portfolio3.png',
     list: [
       {
-        term: '開発フレームワーク・言語',
+        term: '開発言語',
         desc: 'Next.js / TypeScript',
       },
       {
@@ -72,7 +93,7 @@ export const works: WorkType[] = [
     url: '/thumb-portofolio.jpg',
     list: [
       {
-        term: '開発フレームワーク・言語',
+        term: '開発言語',
         desc: 'Vue.js / TypeScript',
       },
       {
@@ -90,7 +111,7 @@ export const works: WorkType[] = [
     url: '/thumb-portofolio.jpg',
     list: [
       {
-        term: '開発フレームワーク・言語',
+        term: '開発フ言語',
         desc: 'HTML5 / Sass / JavaScript',
       },
       {
@@ -103,4 +124,4 @@ export const works: WorkType[] = [
       },
     ],
   },
-] 
+]

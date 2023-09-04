@@ -6,7 +6,6 @@ const SnapContainer = styled.div`
     display: none;
   }
   scrollbar-width: none; /* Firefox 対応 */
-
   z-index: 2;
   position: relative;
   width: 100%;

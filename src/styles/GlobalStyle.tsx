@@ -14,11 +14,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
-  body,
-  html {
+  body {
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: #000000;
+    /* background-color: white; */
     overflow-x:auto;
     color: #fff;
     font-family: 'Noto Serif JP', "游明朝体", 'Yu Mincho', 'YuMincho', serif;
@@ -31,6 +31,11 @@ html {
 
   a {
     text-decoration: none;
+    cursor: pointer !important;
+  }
+
+  button {
+    cursor: pointer !important;
   }
 }
 `

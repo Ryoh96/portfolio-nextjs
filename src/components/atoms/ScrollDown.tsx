@@ -22,7 +22,7 @@ const Text = styled.span`
 
 const ScrollDownWrapper = styled.div`
   color: #fff;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
   width: 100%;
   position: relative;
   text-align: center;
@@ -34,6 +34,7 @@ const ScrollDownWrapper = styled.div`
 
 const IconWrapper = styled.div`
   animation: scrollDown 1.8s linear infinite;
+  width: 30px;
   font-size: 50px;
   ${({ theme }) => theme.media.u_sp`
     display: none;

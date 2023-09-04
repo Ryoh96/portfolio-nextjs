@@ -31,21 +31,23 @@ const Title = styled.h2.attrs({
   ${({ theme }) => theme.media.u_sp`
     margin-bottom: 0.6em;
     padding-top: 60px;
+    font-size: 30px;
   `}
   ${({ theme }) => theme.media.u_sm`
-    font-size: 36px;
-  `}
-  ${({ theme }) => theme.media.u_xs`
     font-size: 28px;
   `}
+  ${({ theme }) => theme.media.u_xs`
+    font-size: 20px;
+  `}
   ${({ theme }) => theme.media.u_xxs`
-    padding-top: 1.7em;
+    padding-top: 4em;
   `}
 `
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 5%;
   ${({ theme }) => theme.media.u_sp`
     flex-direction: column-reverse;
   `}
@@ -72,6 +74,9 @@ const DList = styled.dl<{
       transform: translate(0, 0);
       opacity: 1;
     `}
+  ${({ theme }) => theme.media.u_sp`
+      gap: 10px;
+  `}
 
   ${({ theme }) => theme.media.u_xs`
       font-size: 14px;
@@ -96,6 +101,7 @@ const DTerm = styled.dt`
     transform: rotate(45deg);
     margin-right: 0.8em;
   }
+  word-break: keep-all;
 
   ${({ theme }) => theme.media.u_sp`
     font-size: 14px;
@@ -110,10 +116,12 @@ const DDesc = styled.dd`
   align-items: center;
   font-size: 0.95em;
   opacity: 0.85;
+  word-break: keep-all;
 
   ${({ theme }) => theme.media.u_sp`
     margin-left: 0em;
     font-size: 14px;
+    margin-bottom: 0;
   `}
 
   &::before {
@@ -178,6 +186,14 @@ const ImageWrapper = styled.figure<{
   }
 `
 
+const DTextWrapper = styled.div`
+  ${({ theme }) => theme.media.u_sp`
+    display: flex;
+    align-items: center;
+    gap: 3%;
+  `}
+`
+
 type WorkSectionProps = {
   work: WorkType
 }
@@ -194,10 +210,10 @@ const WorkSection = ({ work }: WorkSectionProps) => {
       <FlexContainer>
         <DList isShow={inView}>
           {work.list.map((item, index) => (
-            <Fragment key={index}>
+            <DTextWrapper key={index}>
               <DTerm>{item.term}</DTerm>
               <DDesc>{item.desc}</DDesc>
-            </Fragment>
+            </DTextWrapper>
           ))}
         </DList>
         <ImageWrapper isShow={inView}>

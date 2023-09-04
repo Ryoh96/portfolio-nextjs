@@ -27,7 +27,13 @@ const FootPrintsAnimation = ({
   }, [currentImageIndex, length])
 
   return (
-    <div style={{ position: 'relative', width: "fit-content", height: "fit-content" }}>
+    <div
+      style={{
+        position: 'relative',
+        width: 'fit-content',
+        height: 'fit-content',
+      }}
+    >
       {[...Array(length)].map((_, index) => (
         <motion.img
           key={index}
@@ -49,7 +55,7 @@ const FootPrintsAnimation = ({
             duration: 0.5,
             ease: 'easeInOut',
           }}
-          style={{ position: 'absolute', mixBlendMode: "darken" }}
+          style={{ position: 'absolute', mixBlendMode: 'darken' }}
         />
       ))}
     </div>

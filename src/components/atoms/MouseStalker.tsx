@@ -2,6 +2,8 @@ import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
+import { rotateAnimation } from '@/animations/rotateAnimation'
+
 const width = 76
 
 const MyCursor = styled.div`
@@ -22,23 +24,13 @@ const MyCursor = styled.div`
     transform: scale(1.5);
   }
 
-  animation: rotate 3s linear infinite;
+  animation: ${rotateAnimation} 3s linear infinite;
 
-  background-image: url("/gear-menu.svg");
+  background-image: url('/gear-menu.svg');
 
   ${({ theme }) => theme.media.u_pc`
     display: none;
   `}
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0);
-    }
-
-    100% {
-      transform: rotate(359deg);
-    }
-  }
 `
 
 const delay = 30
