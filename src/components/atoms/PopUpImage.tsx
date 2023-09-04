@@ -40,17 +40,14 @@ const PopUpImage = ({ url, appear, className }: PopupImageProps) => {
   return (
     <>
       <ImageWrapper appear={appear} className={className}>
-        <Image
+        {/*eslint-disable-next-line @next/next/no-img-element*/}
+        <img
           src={url}
           alt=""
-          fill
           style={{
             objectFit: 'contain',
             width: '100%',
           }}
-          priority={true}
-          loading="eager"
-          sizes="(max-width: 624px) 100vw, (max-width: 959px) 50vw, (max-width: 1295px) 33vw, 25vw"
         />
       </ImageWrapper>
     </>

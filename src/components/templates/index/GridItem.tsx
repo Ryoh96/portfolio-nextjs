@@ -33,8 +33,8 @@ const GridItem = ({ section, index, current, sectionLength }: Props) => {
       )}
       {section.pic && (
         <ImageWrapper isCurrent={current === index}>
-          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} />
-          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} />
+          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} loading='eager' priority/>
+          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} loading='eager' priority/>
         </ImageWrapper>
       )}
     </>
