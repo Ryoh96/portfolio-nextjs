@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components'
 
 import SectionNumber from '@/components/atoms/SectionNumber'
 import FootPrints from '@/components/molecules/FootPrints'
-import FootPrintWrapper from '@/components/templates/index/FootPrintWrapper'
-import SectionNumberWrapper from '@/components/templates/index/SectionNumberWrapper'
+import {FootPrintWrapper} from '@/components/templates/index/FootPrintWrapper'
+import {SectionNumberWrapper} from '@/components/templates/index/SectionNumberWrapper'
 
 const BottomWrapper = styled.div`
   position: fixed;
@@ -23,7 +23,7 @@ type Props = {
   sectionLength: number
 }
 
-const Bottom = ({ currentSection, sectionLength }: Props) => {
+export const Bottom = ({ currentSection, sectionLength }: Props) => {
   const handleClick = useCallback((index: number) => {
     document.getElementById(`${index}`)?.scrollIntoView({
       behavior: 'smooth',
@@ -49,4 +49,3 @@ const Bottom = ({ currentSection, sectionLength }: Props) => {
   )
 }
 
-export default Bottom

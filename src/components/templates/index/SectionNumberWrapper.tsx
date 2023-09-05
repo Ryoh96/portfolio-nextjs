@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-const SectionNumberWrapper = styled.div`
+export const SectionNumberWrapper = styled.div`
   width: fit-content;
   ${({ theme }) => theme.media.u_sm`
     display: none; 
 `}
 `
-export default SectionNumberWrapper

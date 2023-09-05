@@ -217,7 +217,13 @@ const WorkSection = ({ work }: WorkSectionProps) => {
           ))}
         </DList>
         <ImageWrapper isShow={inView}>
-          <Image alt={work.title} src={work.url} fill loading='eager' priority/>
+          <Image
+            alt={work.title}
+            src={work.url}
+            fill
+            loading="eager"
+            priority
+          />
         </ImageWrapper>
       </FlexContainer>
     </Section>

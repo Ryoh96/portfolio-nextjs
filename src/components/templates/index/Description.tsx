@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-const Description = styled.p`
+export const Description = styled.p`
   min-height: 0vw;
   margin-bottom: 5vh;
   transition: 0.8s;
@@ -14,4 +14,3 @@ const Description = styled.p`
   `}
 `
 
-export default Description

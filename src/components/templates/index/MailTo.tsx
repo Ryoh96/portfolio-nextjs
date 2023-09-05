@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-const MailTo = styled.a`
+export const MailTo = styled.a`
   min-height: 0vw;
   margin-bottom: 5vh;
   transition: 0.8s;
@@ -39,4 +39,3 @@ const MailTo = styled.a`
       align-self: center;
   `}
 `
-export default MailTo

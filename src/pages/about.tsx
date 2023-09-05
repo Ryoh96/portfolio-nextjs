@@ -1,113 +1,20 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import { useInView } from 'react-intersection-observer'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-import _Description from '@/components/atoms/Description'
-import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
-import AroundGears from '@/components/molecules/AroundGears'
 import Header from '@/components/organisms/Header'
 import Particle from '@/components/organisms/Particle'
+import {
+  List,
+  ListItem,
+  PageDescription,
+  PageTitle,
+  Paragraph,
+  Section,
+  Title,
+} from '@/components/templates/about'
 import Meta from '@/components/utils/Meta'
-import { getRandomColor } from '@/utils/randomColor'
-
-const PageTitle = styled(_Title)`
-  padding-top: 1em;
-  margin-bottom: 0.5em;
-`
-
-const PageDescription = styled(_Description)`
-  margin-bottom: 2.5em;
-`
-
-const Section = styled.section<{
-  inView?: boolean
-  childrenLength?: number
-}>`
-  margin-bottom: 88px;
-
-  ${({ theme }) => theme.media.u_sp`
-    margin-bottom: 60px;
-  `}
-
-  > * {
-    transition: all 2s;
-    opacity: 0;
-  }
-  ${({ childrenLength }) =>
-    [...Array(childrenLength)].map(
-      (_, index) => css`
-        > *:nth-child(${index + 1}) {
-          color: ${getRandomColor()};
-        }
-      `
-    )}
-
-  ${({ inView, childrenLength }) =>
-    inView &&
-    [...Array(childrenLength)].map(
-      (_, index) => css`
-        > *:nth-child(${index + 1}) {
-          transition-delay: ${index * 0.2}s;
-          color: #fff;
-          opacity: 1;
-        }
-      `
-    )}
-`
-
-const Title = styled.h2`
-  font-size: clamp(24.6px, 3.2vw, 48px);
-  min-height: 0vw;
-  margin-bottom: 0.8em;
-  border-left: 0.17em solid #fff;
-  font-weight: bold;
-  padding-left: 0.4em;
-
-  ${({ theme }) => theme.media.u_xs`
-      font-size: 22px;
-  `}
-`
-
-const Paragraph = styled.p`
-  font-size: clamp(16px, 1.46vw, 22px);
-  min-height: 0vw;
-  line-height: 1.8;
-  margin-bottom: 1.8em;
-
-  ${({ theme }) => theme.media.u_xs`
-      font-size: 15px;
-  `}
-`
-
-const List = styled.ul`
-  display: grid;
-  gap: 1em;
-  margin-bottom: 1.8em;
-`
-
-const ListItem = styled.li`
-  font-size: clamp(16px, 1.46vw, 22px);
-  min-height: 0vw;
-  opacity: 0.9;
-  display: flex;
-  gap: 0.8em;
-  line-height: 1.8;
-  align-items: center;
-  ${({ theme }) => theme.media.u_xs`
-      font-size: 15px;
-  `}
-
-  &::before {
-    content: '';
-    display: blok;
-    width: 0.5em;
-    height: 0.5em;
-    background-color: #fff;
-    transform: rotate(45deg);
-  }
-`
 
 const AboutInner = styled.div`
   width: min(960px, 80%);
@@ -131,6 +38,7 @@ const About: NextPage = () => {
   const { ref: ref2, inView: inView2 } = useInView({ ...options, delay: 500 })
   const { ref: ref3, inView: inView3 } = useInView(options)
   const { ref: ref4, inView: inView4 } = useInView(options)
+
   return (
     <>
       <Meta

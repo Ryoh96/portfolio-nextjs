@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { prata } from '@/font/prata'
 
-const Section = styled.section.attrs({
+export const Section = styled.section.attrs({
   className: prata.className,
 })<{ isCurrent: boolean }>`
   width: 100%;
@@ -25,5 +25,3 @@ const Section = styled.section.attrs({
       opacity: 1;
     `}
 `
-
-export default Section

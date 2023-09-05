@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { breakpoints } from '@/theme/mediaQuery'
 
-const GridContainer = styled.div<{ isTop: boolean }>`
+export const GridContainer = styled.div<{ isTop: boolean }>`
   text-align: center;
   white-space: nowrap;
   display: grid;
@@ -41,5 +41,3 @@ const GridContainer = styled.div<{ isTop: boolean }>`
       margin-left: 4%;
     `}
 `
-
-export default GridContainer

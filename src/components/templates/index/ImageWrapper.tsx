@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const ImageWrapper = styled.figure<{ isCurrent: boolean }>`
+export const ImageWrapper = styled.figure<{ isCurrent: boolean }>`
   width: 40svw;
   height: 45svw;
   max-width: 800px;
@@ -48,5 +48,3 @@ const ImageWrapper = styled.figure<{ isCurrent: boolean }>`
     }
   }
 `
-
-export default ImageWrapper

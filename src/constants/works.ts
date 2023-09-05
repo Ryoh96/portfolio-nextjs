@@ -8,13 +8,13 @@ export type WorkType = {
 }
 
 export const works: WorkType[] = [
-  { 
-    title:"筋トレ管理ノートアプリ",
-    url: "/workout-app.jpg",
+  {
+    title: '筋トレ管理ノートアプリ',
+    url: '/workout-app.jpg',
     list: [
       {
-        term: "URL",
-        desc: "https://workout-mocha.vercel.app/about"
+        term: 'URL',
+        desc: 'https://workout-mocha.vercel.app/about',
       },
       {
         term: '開発言語',
@@ -25,10 +25,10 @@ export const works: WorkType[] = [
         desc: 'GraphQL / Tailwind CSS / Prisma',
       },
       {
-        term: "補足",
-        desc: "DB設計、バック /フロントエンド全てを個人開発"
-      }
-    ]
+        term: '補足',
+        desc: 'DB設計、バック /フロントエンド全てを個人開発',
+      },
+    ],
   },
   {
     title: 'Jamstackブログ',

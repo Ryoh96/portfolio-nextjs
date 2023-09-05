@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-const Title = styled.h2`
+export const Title = styled.h2`
   font-size: clamp(40px, 8vw, 150px);
   min-height: 0vw;
   padding-top: 7svw;
@@ -15,5 +15,3 @@ const Title = styled.h2`
 
   `}
 `
-
-export default Title

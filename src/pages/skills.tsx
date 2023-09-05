@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import type { RefObject } from 'react'
-import { createRef, useEffect, useMemo, useRef, useState } from 'react'
+import { createRef, useMemo, useRef, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import styled from 'styled-components'
 
@@ -11,7 +10,6 @@ import _Title from '@/components/atoms/Title'
 import Container from '@/components/layout/Container'
 import Header from '@/components/organisms/Header'
 import ImageDoughnutsPercent from '@/components/organisms/ImageDoughnutPercent'
-import Particle from '@/components/organisms/Particle'
 import Meta from '@/components/utils/Meta'
 import { skills } from '@/constants/skills'
 

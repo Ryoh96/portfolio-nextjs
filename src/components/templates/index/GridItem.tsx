@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
 import Button from '@/components/atoms/Button'
-import Description from '@/components/templates/index/Description'
-import ImageWrapper from '@/components/templates/index/ImageWrapper'
-import MailTo from '@/components/templates/index/MailTo'
-import ShowMoreButton from '@/components/templates/index/ShowMoreButton'
-import Title from '@/components/templates/index/Title'
+import { Description } from '@/components/templates/index/Description'
+import {ImageWrapper} from '@/components/templates/index/ImageWrapper'
+import {MailTo} from '@/components/templates/index/MailTo'
+import {ShowMoreButton} from '@/components/templates/index/ShowMoreButton'
+import {Title} from '@/components/templates/index/Title'
 import type { SectionText } from '@/constants/topSectionTexts'
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   sectionLength: number
 }
 
-const GridItem = ({ section, index, current, sectionLength }: Props) => {
+export const GridItem = ({ section, index, current, sectionLength }: Props) => {
   return (
     <>
       <Title as={index === 0 ? 'h1' : 'h2'}>{section.title}</Title>
@@ -33,12 +33,24 @@ const GridItem = ({ section, index, current, sectionLength }: Props) => {
       )}
       {section.pic && (
         <ImageWrapper isCurrent={current === index}>
-          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} loading='eager' priority/>
-          <Image alt="" src={section.pic} fill style={{ objectFit: 'cover' }} loading='eager' priority/>
+          <Image
+            alt=""
+            src={section.pic}
+            fill
+            style={{ objectFit: 'cover' }}
+            loading="eager"
+            priority
+          />
+          <Image
+            alt=""
+            src={section.pic}
+            fill
+            style={{ objectFit: 'cover' }}
+            loading="eager"
+            priority
+          />
         </ImageWrapper>
       )}
     </>
   )
 }
-
-export default GridItem

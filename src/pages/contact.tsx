@@ -1,16 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { useInView } from 'react-intersection-observer'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import _Description from '@/components/atoms/Description'
 import _Title from '@/components/atoms/Title'
-import Container from '@/components/layout/Container'
 import ContactForm from '@/components/organisms/ContactForm'
 import Header from '@/components/organisms/Header'
-import Particle from '@/components/organisms/Particle'
 import Meta from '@/components/utils/Meta'
-import { getRandomColor } from '@/utils/randomColor'
 
 const PageTitle = styled(_Title)`
   padding-top: 1em;
